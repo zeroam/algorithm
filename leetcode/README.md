@@ -7,5 +7,6 @@
 - [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
+- [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters/)
 - [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)
 - [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)
