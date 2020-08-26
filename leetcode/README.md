@@ -2,6 +2,7 @@
 
 - [77. Combinations](https://leetcode.com/problems/combinations/)
 - [123. Best Time to Buy and Sell Stock iii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
+- [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 - [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
