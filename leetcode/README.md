@@ -7,6 +7,7 @@
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
 - [436. Find Right Interval](https://leetcode.com/problems/find-right-interval/)
 - [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
+- [490. The Maze](https://leetcode.com/problems/the-maze/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
 - [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters/)
