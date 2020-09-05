@@ -1,3 +1,6 @@
+import re
+
+
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
         n = len(s)
@@ -21,17 +24,27 @@ class Solution:
         return False
 
 
+class SolutionRegex:
+    def repeatedSubstringPattern(self, s: str) -> bool:
+        pattern = re.compile(r"^(.+)\1+$")
+        return bool(pattern.match(s))
+
+
 if __name__ == "__main__":
     s = Solution()
+    sr = SolutionRegex()
 
     case = "abab"
     expect = True
     assert s.repeatedSubstringPattern(case) == expect
+    assert sr.repeatedSubstringPattern(case) == expect
 
     case = "aba"
     expect = False
     assert s.repeatedSubstringPattern(case) == expect
+    assert sr.repeatedSubstringPattern(case) == expect
 
     case = "abcabcabcabc"
     expect = True
     assert s.repeatedSubstringPattern(case) == expect
+    assert sr.repeatedSubstringPattern(case) == expect
