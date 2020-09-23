@@ -3,49 +3,48 @@ from typing import List
 
 class Solution:
     def uniquePathsIII(self, grid: List[List[int]]) -> int:
-        n = 0
-        visited = [[0] * len(grid[0]) for _ in range(len(grid))]
         
-        for i, row in enumerate(grid):
-            for j, value in enumerate(row):
-                if value == 1:
-                    start_y = i
-                    start_x = j
-                    visited[i][j] = 1
-                elif value in [0, 2]:
-                    n += 1
-                else:
-                    visited[i][j] = 1
+        rows = len(grid)
+        cols = len(grid[0])
+        non_obstacles = 0
+        start_row, start_col = 0, 0
+        for row in range(rows):
+            for col in range(cols):
+                cell = grid[row][col]
+                if cell >= 0:
+                    non_obstacles += 1
+                if cell == 1:
+                    start_row = row
+                    start_col = col
         
-        paths = [(start_y), (start_x)]
-        result = 0
-        def dfs(x: int, y: int, walk_cnt: int = 0):
-            if walk_cnt >= n:
-                if grid[y][x] == 2:
-                    nonlocal result
-                    result += 1
+        path_count = 0
+        def backtrack(row: int, col: int, remain: int):
+            if grid[row][col] == 2 and remain == 1:
+                nonlocal path_count
+                path_count += 1
                 return
             
-            row = len(grid)
-            col = len(grid[0])
+            temp = grid[row][col]
+            grid[row][col] = -4
+            remain -= 1
             
-            for dir_x, dir_y in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
-                next_x = x + dir_x
-                next_y = y + dir_y
+            for dir_row, dir_col in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+                next_row = row + dir_row
+                next_col = col + dir_col
 
-                if 0 <= next_x < col and 0 <= next_y < row:
-                    if visited[next_y][next_x] != 0:
-                        continue
+                if not (0 <= next_row < rows and 0 <= next_col < cols):
+                    continue
+                if grid[next_row][next_col] < 0:
+                    continue
                         
-                    visited[next_y][next_x] = 1
-                    paths.append((next_y, next_x))
-                    dfs(next_x, next_y, walk_cnt + 1)
-                    visited[next_y][next_x] = 0
-                    paths.pop()
+                backtrack(next_row, next_col, remain)
                 
-        dfs(start_x, start_y)
+            grid[row][col] = temp
+                
+                
+        backtrack(start_row, start_col, non_obstacles)
 
-        return result
+        return path_count
 
 
 if __name__ == "__main__":
