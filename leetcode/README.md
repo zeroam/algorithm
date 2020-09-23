@@ -6,6 +6,7 @@
 - [123. Best Time to Buy and Sell Stock iii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
 - [157. Read N Characters Given Read4](https://leetcode.com/problems/read-n-characters-given-read4/)
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
+- [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
 - [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
