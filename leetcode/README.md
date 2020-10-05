@@ -30,4 +30,5 @@
 - [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters/)
 - [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)
 - [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)
+- [1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)
 - [1305. All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)
