@@ -24,6 +24,7 @@
 - [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
 - [624. Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/)
+- [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
 - [835. Image Overlap](https://leetcode.com/problems/image-overlap/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
