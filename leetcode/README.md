@@ -3,6 +3,7 @@
 - [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [57. Insert Interval](https://leetcode.com/problems/insert-interval/)
 - [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
+- [61. Rotate List](https://leetcode.com/problems/rotate-list/)
 - [77. Combinations](https://leetcode.com/problems/combinations/)
 - [123. Best Time to Buy and Sell Stock iii](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/)
 - [134. Gas Station](https://leetcode.com/problems/gas-station/)
