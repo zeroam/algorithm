@@ -1,3 +1,6 @@
+from typing import List
+
+
 class SolutionUnsolved:
     def rob(self, nums: List[int]) -> int:
         n = len(nums)
@@ -29,3 +32,40 @@ class SolutionUnsolved:
         traverse_houses(0, 0)
         
         return max_total
+
+
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 0 or nums is None:
+            return 0
+
+        if len(nums) == 1:
+            return nums[0]
+
+        return max(self.rob_simple(nums[:-1]), self.rob_simple(nums[1:]))
+
+    def rob_simple(self, nums: List[int]) -> int:
+        t1 = 0
+        t2 = 0
+        for current in nums:
+            temp = t1
+            t1 = max(current + t2, t1)
+            t2 = temp
+
+        return t1
+
+
+if __name__ == "__main__":
+    s = Solution()
+
+    nums = [2, 3, 2]
+    expect = 3
+    assert s.rob(nums) == expect
+
+    nums = [1, 3, 1, 3, 100]
+    expect = 103
+    assert s.rob(nums) == expect
+
+    nums = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5]
+    expect = 16
+    assert s.rob(nums) == expect
