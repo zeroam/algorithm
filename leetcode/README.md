@@ -33,6 +33,7 @@
 - [835. Image Overlap](https://leetcode.com/problems/image-overlap/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
 - [980. Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)
+- [1007. Minimum Domino Rotations For Equal Row](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/)
 - [1009. Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer/)
 - [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters/)
 - [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)
