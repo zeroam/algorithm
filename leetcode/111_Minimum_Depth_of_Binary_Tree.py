@@ -27,7 +27,7 @@ class Solution:
             
 
 
-class SolutionSite:
+class SolutionBFS:
     def minDepth(self, root: TreeNode) -> int:
         if root is None:
             return 0
@@ -42,4 +42,24 @@ class SolutionSite:
             for c in children:
                 if c:
                     q.append((c, depth + 1))
+
+
+class SolutionDFS:
+    def minDepth(self, root: TreeNode) -> int:
+        if root is None:
+            return 0
+
+        stack = [(root, 1)]
+        min_depth = float('inf')
+        while stack:
+            node, depth = stack.pop()
+            children = [node.left, node.right]
+            if not any(children):
+                min_depth = min(depth, min_depth)
+            
+            for c in children:
+                if c:
+                    stack.append((c, depth + 1))
+                    
+        return min_depth
             
