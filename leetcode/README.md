@@ -32,6 +32,7 @@
 - [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
 - [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)
+- [593. Valid Square](https://leetcode.com/problems/valid-square/)
 - [624. Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
