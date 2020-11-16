@@ -38,6 +38,7 @@
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
 - [835. Image Overlap](https://leetcode.com/problems/image-overlap/)
+- [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
 - [980. Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)
 - [1007. Minimum Domino Rotations For Equal Row](https://leetcode.com/problems/minimum-domino-rotations-for-equal-row/)
