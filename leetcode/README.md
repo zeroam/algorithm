@@ -18,6 +18,7 @@
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
 - [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
+- [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node/)
 - [389. Find the Difference](https://leetcode.com/problems/find-the-difference/)
 - [399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
 - [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
