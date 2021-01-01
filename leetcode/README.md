@@ -60,3 +60,4 @@
 - [1305. All Elements in Two Binary Search Trees](https://leetcode.com/problems/all-elements-in-two-binary-search-trees/)
 - [1492. The kth Factor of n](https://leetcode.com/problems/the-kth-factor-of-n/)
 - [1510. Stone Game IV](https://leetcode.com/problems/stone-game-iv/)
+- [1640. Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation/)
