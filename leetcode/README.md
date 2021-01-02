@@ -16,7 +16,7 @@
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
 - [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
-- [256. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
+- [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
 - [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
