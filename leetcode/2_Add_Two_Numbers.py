@@ -8,26 +8,25 @@ class ListNode:
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
 
-        head = ListNode(val=None)
+        head = ListNode()
         cur = head
-        def add_node(l1, l2):
-            if l1 is None or l2 is None:
-                return 0
+        carry = 0
+        while True:
+            num1 = l1.val if l1 else 0
+            num2 = l2.val if l2 else 0
 
-            nonlocal cur
-            carry = add_node(l1.next, l2.next)
-            num = (l1.val + l2.val + carry)
-            print(f"carry: {carry}, num: {num}")
-            if cur.val is None:
-                cur.val = num % 10
-            else:
-                cur.next = ListNode(num % 10)
-                cur = cur.next
+            carry, num = divmod(num1 + num2 + carry, 10)
+            cur.next = ListNode(num)
+            cur = cur.next
 
-            return num // 10
+            l1 = l1.next if l1 else None
+            l2 = l2.next if l2 else None
 
-        print(add_node(l1, l2))
-        return head
+            if l1 is None and l2 is None:
+                if carry == 0:
+                    break
+
+        return head.next
 
 
 def make_list_node(l: list) -> ListNode:
