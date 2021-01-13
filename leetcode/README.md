@@ -13,6 +13,7 @@
 - [133. Clone Graph](https://leetcode.com/problems/clone-graph/)
 - [134. Gas Station](https://leetcode.com/problems/gas-station/)
 - [139. Word Break](https://leetcode.com/problems/word-break/)
+- [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
 - [157. Read N Characters Given Read4](https://leetcode.com/problems/read-n-characters-given-read4/)
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
