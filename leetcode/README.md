@@ -8,6 +8,7 @@
 - [61. Rotate List](https://leetcode.com/problems/rotate-list/)
 - [77. Combinations](https://leetcode.com/problems/combinations/)
 - [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+- [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
 - [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
