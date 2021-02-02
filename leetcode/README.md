@@ -24,6 +24,7 @@
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
 - [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
+- [250. Count Univalue Subtree](https://leetcode.com/problems/count-univalue-subtrees/)
 - [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
