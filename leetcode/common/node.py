@@ -31,3 +31,10 @@ def make_tree_node(l: List[int]) -> TreeNode:
             queue.append(right)
 
     return node
+
+
+def inorder_traverse(root: TreeNode) -> List[int]:
+    if root is None:
+        return []
+
+    return inorder_traverse(root.left) + [root.val] + inorder_traverse(root.right)
