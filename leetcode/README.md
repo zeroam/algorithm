@@ -31,6 +31,7 @@
 - [250. Count Univalue Subtree](https://leetcode.com/problems/count-univalue-subtrees/)
 - [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
+- [297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
 - [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
 - [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node/)
