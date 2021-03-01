@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import List, Optional
 
 
 class ListNode(object):
@@ -94,10 +94,18 @@ class MyLinkedList:
         prev_node.next = next_node
         self.size -= 1
 
-# Your MyLinkedList object will be instantiated and called as such:
-# obj = MyLinkedList()
-# param_1 = obj.get(index)
-# obj.addAtHead(val)
-# obj.addAtTail(val)
-# obj.addAtIndex(index,val)
-# obj.deleteAtIndex(index)
+
+def check_solution(methods: List[str], args_list: List[List[int]], expects: List[Optional[int]]):
+    linked_list = MyLinkedList()
+
+    for method, args, expect in zip(methods, args_list, expects):
+        output = getattr(linked_list, method)(*args)
+        print(f"method: {method}, output: {output}, expect: {expect}")
+        assert output == expect
+
+
+if __name__ == "__main__":
+    methods = ["addAtHead", "addAtTail", "addAtIndex", "get", "deleteAtIndex", "get"]
+    args_list = [[1], [3], [1, 2], [1], [1], [1]]
+    expects = [None, None, None, 2, None, 3]
+    check_solution(methods, args_list, expects)
