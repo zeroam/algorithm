@@ -25,6 +25,7 @@
 - [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
 - [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
 - [157. Read N Characters Given Read4](https://leetcode.com/problems/read-n-characters-given-read4/)
+- [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
