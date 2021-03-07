@@ -8,6 +8,12 @@ class TreeNode:
         self.right = right
 
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+
 def make_tree_node(l: List[int]) -> TreeNode:
     if len(l) == 0:
         return None
@@ -38,3 +44,21 @@ def inorder_traverse(root: TreeNode) -> List[int]:
         return []
 
     return inorder_traverse(root.left) + [root.val] + inorder_traverse(root.right)
+
+
+def listnode_to_list(head: ListNode) -> List[int]:
+    ret = []
+    while head:
+        ret.append(head.val)
+        head = head.next
+
+    return ret
+
+
+def list_to_listnode(l: List[int]) -> ListNode:
+    dummy = head = ListNode()
+    for num in l:
+        head.next = ListNode(num)
+        head = head.next
+
+    return dummy.next
