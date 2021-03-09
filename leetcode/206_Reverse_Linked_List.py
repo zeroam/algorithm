@@ -18,10 +18,38 @@ class Solution:
         return prev
 
 
+class SolutionIterative:
+    def reverseList(self, head: ListNode) -> ListNode:
+        prev = None
+        curr = head
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+
+        return prev
+
+
+class SolutionRecursive:
+    def reverseList(self, head: ListNode) -> ListNode:
+        if head is None or head.next is None:
+            return head
+
+        p = self.reverseList(head.next)
+        head.next.next = head
+        head.next = None
+
+        return p
+
+
 def check_solution(l: List[int], expect: List[int]) -> None:
     s = Solution()
+    s_i = SolutionIterative()
+    s_r = SolutionRecursive()
 
     assert listnode_to_list(s.reverseList(list_to_listnode(l))) == expect
+    assert listnode_to_list(s_i.reverseList(list_to_listnode(l))) == expect
 
 
 if __name__ == "__main__":
