@@ -2,8 +2,9 @@ from typing import List, Optional
 
 
 class ListNode(object):
-    def __init__(self, val: int):
+    def __init__(self, val: int = None):
         self.val = val
+        self.prev = None
         self.next = None
 
 
@@ -286,9 +287,102 @@ class MyLinkedListDoubly:
         succ.prev = pred
 
 
+class MyLinkedListDoubly2:
+
+    def __init__(self):
+        """
+        Initialize your data structure here.
+        """
+        self.head = ListNode()
+        self.tail = ListNode()
+        self.head.next = self.tail
+        self.tail.prev = self.head
+        self.size = 0
+
+    def _get_node(self, index: int) -> ListNode:
+        if index < 0 or index > self.size:
+            return None
+
+        cur_index = 0
+        if index < self.size - index:
+            # get from head
+            cur_node = self.head
+            while cur_index < index + 1:
+                cur_index += 1
+                cur_node = cur_node.next
+        else:
+            # get from tail
+            cur_node = self.tail
+            while cur_index < self.size - index:
+                cur_index += 1
+                cur_node = cur_node.prev
+
+        return cur_node
+
+    def get(self, index: int) -> int:
+        """
+        Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+        """
+        if index < 0 or index >= self.size:
+            return -1
+
+        return self._get_node(index).val
+
+    def addAtHead(self, val: int) -> None:
+        """
+        Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+        """
+        self.addAtIndex(0, val)
+
+
+    def addAtTail(self, val: int) -> None:
+        """
+        Append a node of value val to the last element of the linked list.
+        """
+        self.addAtIndex(self.size, val)
+
+
+    def addAtIndex(self, index: int, val: int) -> None:
+        """
+        Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+        """
+        # validation check
+        if index < 0 or index > self.size:
+            return None
+        cur_node = self._get_node(index)
+
+        prev_node = cur_node.prev
+        new_node = ListNode(val)
+        new_node.prev = prev_node
+        new_node.next = cur_node
+
+        prev_node.next = new_node
+        cur_node.prev = new_node
+
+        self.size += 1
+
+    def deleteAtIndex(self, index: int) -> None:
+        """
+        Delete the index-th node in the linked list, if the index is valid.
+        """
+        # validation check
+        if index < 0 or index >= self.size:
+            return None
+        cur_node = self._get_node(index)
+
+        prev_node = cur_node.prev
+        next_node = cur_node.next
+
+        # cur_node.prev = None
+        # cur_node.next = None
+        prev_node.next = next_node
+        next_node.prev = prev_node
+
+        self.size -= 1
+
 
 def check_solution(methods: List[str], args_list: List[List[int]], expects: List[Optional[int]]):
-    linked_lists = [MyLinkedList(), MyLinkedListSingly(), MyLinkedListDoubly()]
+    linked_lists = [MyLinkedList(), MyLinkedListSingly(), MyLinkedListDoubly(), MyLinkedListDoubly2()]
 
     for linked_list in linked_lists:
         for method, args, expect in zip(methods, args_list, expects):
