@@ -48,6 +48,40 @@ class Solution:
         return head
 
 
+class SolutionTwoPointers:
+    def insert(self, head: 'Node', insertVal: int) -> 'Node':
+        if head is None:
+            new_node = Node(insertVal)
+            new_node.next = new_node
+            return new_node
+
+        prev = head
+        cur = head.next
+        while True:
+            # check one cycle
+            if head is cur:
+                break
+
+            if prev.val <= insertVal <= cur.val:
+                # Case #1.
+                break
+
+            # over max value
+            if prev.val > cur.val:
+                # Case #2. where we locate the tail element
+                # 'prev' points to th tail, i.e the largest element!
+                if insertVal >= prev.val or insertVal <= cur.val:
+                    break
+
+            prev = prev.next
+            cur = cur.next
+
+        insert_node = Node(insertVal)
+        prev.next = insert_node
+        insert_node.next = cur
+
+        return head
+
 
 def check_solution(head: List[int], insert_val: int, expect: List[int]):
     pass
