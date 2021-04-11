@@ -3,6 +3,7 @@
 - [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 - [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
+- [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 - [27. Remove Element](https://leetcode.com/problems/remove-element/)
 - [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [57. Insert Interval](https://leetcode.com/problems/insert-interval/)
