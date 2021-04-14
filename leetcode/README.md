@@ -79,6 +79,7 @@
 - [897. Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree/)
 - [902. Numbers At Most N Given Digit Set](https://leetcode.com/problems/numbers-at-most-n-given-digit-set/)
 - [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
+- [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
 - [977. Squares of a Sorted Array](https://leetcode.com/problems/squares-of-a-sorted-array/)
 - [980. Unique Paths III](https://leetcode.com/problems/unique-paths-iii/)
