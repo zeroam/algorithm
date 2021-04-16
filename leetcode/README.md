@@ -98,3 +98,4 @@
 - [1640. Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation/)
 
 - [Check If N and Its Double Exist](https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/)
+- [Replace Elements with Greatest Element on Right Side](https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/)
