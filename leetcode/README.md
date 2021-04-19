@@ -42,6 +42,7 @@
 - [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [250. Count Univalue Subtree](https://leetcode.com/problems/count-univalue-subtrees/)
 - [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
+- [283. Move Zeros](https://leetcode.com/problems/move-zeroes/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
