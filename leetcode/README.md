@@ -79,6 +79,7 @@
 - [858. Mirror Reflection](https://leetcode.com/problems/mirror-reflection/)
 - [897. Increasing Order Search Tree](https://leetcode.com/problems/increasing-order-search-tree/)
 - [902. Numbers At Most N Given Digit Set](https://leetcode.com/problems/numbers-at-most-n-given-digit-set/)
+- [905. Sort Array By Parity](https://leetcode.com/problems/sort-array-by-parity/)
 - [938. Range Sum of BST](https://leetcode.com/problems/range-sum-of-bst/)
 - [941. Valid Mountain Array](https://leetcode.com/problems/valid-mountain-array/)
 - [967. Numbers With Same Consecutive Differences](https://leetcode.com/problems/numbers-with-same-consecutive-differences/)
