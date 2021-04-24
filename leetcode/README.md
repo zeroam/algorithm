@@ -63,6 +63,7 @@
 - [458. Poor Pigs](https://leetcode.com/problems/poor-pigs/)
 - [459. Repeated Substring Pattern](https://leetcode.com/problems/repeated-substring-pattern/)
 - [485. Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
+- [487. Max Consecutive Ones II](https://leetcode.com/problems/max-consecutive-ones-ii/)
 - [490. The Maze](https://leetcode.com/problems/the-maze/)
 - [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
