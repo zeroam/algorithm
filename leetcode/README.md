@@ -53,6 +53,7 @@
 - [399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
 - [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
+- [414. Third Maximum Number](https://leetcode.com/problems/third-maximum-number/)
 - [430. Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
 - [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 - [436. Find Right Interval](https://leetcode.com/problems/find-right-interval/)
