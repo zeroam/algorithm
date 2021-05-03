@@ -49,6 +49,7 @@
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
 - [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
 - [328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)
+- [346. Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
 - [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node/)
 - [389. Find the Difference](https://leetcode.com/problems/find-the-difference/)
 - [399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
