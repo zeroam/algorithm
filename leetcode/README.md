@@ -76,6 +76,7 @@
 - [593. Valid Square](https://leetcode.com/problems/valid-square/)
 - [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue/)
 - [624. Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/)
+- [684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [707. Design Linked List](https://leetcode.com/problems/design-linked-list/)
 - [708. Insert into a Sorted Circular Linked List](https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/)
