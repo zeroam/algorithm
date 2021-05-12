@@ -80,6 +80,7 @@
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [707. Design Linked List](https://leetcode.com/problems/design-linked-list/)
 - [708. Insert into a Sorted Circular Linked List](https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/)
+- [752. Open the Lock](https://leetcode.com/problems/open-the-lock/)
 - [804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
 - [835. Image Overlap](https://leetcode.com/problems/image-overlap/)
