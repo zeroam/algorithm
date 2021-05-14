@@ -30,6 +30,7 @@
 - [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
 - [142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
 - [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
+- [155. Min Stack](https://leetcode.com/problems/min-stack/)
 - [157. Read N Characters Given Read4](https://leetcode.com/problems/read-n-characters-given-read4/)
 - [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
 - [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
