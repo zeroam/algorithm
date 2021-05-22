@@ -74,6 +74,7 @@
 - [485. Max Consecutive Ones](https://leetcode.com/problems/max-consecutive-ones/)
 - [487. Max Consecutive Ones II](https://leetcode.com/problems/max-consecutive-ones-ii/)
 - [490. The Maze](https://leetcode.com/problems/the-maze/)
+- [494. Target Sum](https://leetcode.com/problems/target-sum/)
 - [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
 - [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)
