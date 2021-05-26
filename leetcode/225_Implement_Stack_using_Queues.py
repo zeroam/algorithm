@@ -26,8 +26,8 @@ class MyStack:
                 break
             self.q2.append(cur)
 
-        while self.q2:
-            self.q1.append(self.q2.popleft())
+        # change q1, q2
+        self.q1, self.q2 = self.q2, self.q1
 
         return cur
 
@@ -45,6 +45,55 @@ class MyStack:
         """
         Returns whether the stack is empty.
         """
+        return not self.q1
+
+
+class MyStackSolution1:
+    def __init__(self):
+        self.q1 = deque()
+        self.q2 = deque()
+
+    def push(self, x: int) -> None:
+        # O(n)
+        self.q2.append(x)
+        while self.q1:
+            self.q2.append(self.q1.popleft())
+
+        self.q1, self.q2 = self.q2, self.q1
+
+    def pop(self) -> int:
+        # O(1)
+        return self.q1.popleft()
+
+    def top(self) -> int:
+        # O(1)
+        return self.q1[0]
+
+    def empty(self) -> bool:
+        return not self.q1
+
+
+class MyStackOneQueue:
+    def __init__(self):
+        self.q1 = deque()
+
+    def push(self, x: int) -> None:
+        # O(n)
+        self.q1.append(x)
+        size = len(self.q1)
+        while size > 1:
+            self.q1.append(self.q1.popleft())
+            size -= 1
+
+    def pop(self) -> int:
+        # O(1)
+        return self.q1.popleft()
+
+    def top(self) -> int:
+        # O(1)
+        return self.q1[0]
+
+    def empty(self) -> bool:
         return not self.q1
 
 
