@@ -59,6 +59,7 @@
 - [346. Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
 - [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node/)
 - [389. Find the Difference](https://leetcode.com/problems/find-the-difference/)
+- [394. Decode String](https://leetcode.com/problems/decode-string/)
 - [399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
 - [409. Longest Palindrome](https://leetcode.com/problems/longest-palindrome/)
 - [412. Fizz Buzz](https://leetcode.com/problems/fizz-buzz/)
