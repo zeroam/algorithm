@@ -80,6 +80,7 @@
 - [494. Target Sum](https://leetcode.com/problems/target-sum/)
 - [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
+- [542. 01 Matrix](https://leetcode.com/problems/01-matrix/)
 - [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)
 - [593. Valid Square](https://leetcode.com/problems/valid-square/)
 - [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue/)

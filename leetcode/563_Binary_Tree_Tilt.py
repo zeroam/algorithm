@@ -15,25 +15,25 @@ class Solution:
             total = self._sum_node(node.left, total)
         if node.right:
             total = self._sum_node(node.right, total)
-            
+
         return total + node.val
 
     def findTilt(self, root: TreeNode) -> int:
         if root is None:
             return 0
-        
+
         root.val = abs(self._sum_node(root.left) - self._sum_node(root.right))
-        
+
         if root.left:
             self.findTilt(root.left)
-            
+
         if root.right:
             self.findTilt(root.right)
-        
+
         return self._sum_node(root)
 
 
-def SolutionOrigin:
+class SolutionOrigin:
     def findTilt(self, root: TreeNode) -> int:
         total_tilt = 0
 
