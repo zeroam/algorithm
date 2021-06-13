@@ -14,6 +14,7 @@
 - [77. Combinations](https://leetcode.com/problems/combinations/)
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
 - [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
+- [98. Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/)
 - [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/)
 - [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
 - [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/)
