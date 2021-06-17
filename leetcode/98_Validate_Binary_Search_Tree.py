@@ -1,4 +1,5 @@
 import sys
+import math
 from typing import List
 from common.node import TreeNode, make_tree_node
 
@@ -24,6 +25,37 @@ class Solution:
             node = node.right
 
         return True
+
+
+class SolutionDFS:
+    def isValidBST(self, root: TreeNode) -> bool:
+        def validate(node: TreeNode, left: int = -math.inf, right: int = math.inf) -> bool:
+            if node is None:
+                return True
+
+            if node.val <= left or node.val >= right:
+                return False
+
+            return validate(node.left, left, node.val) and validate(node.right, node.val, right)
+
+        return validate(root)
+
+
+class SolutionInorder:
+    def isValidBST(self, root: TreeNode) -> bool:
+        self.prev = -math.inf
+
+        def inorder(node: TreeNode) -> bool:
+            if node is None:
+                return True
+            if not inorder(node.left):
+                return False
+            if node.val <= self.prev:
+                return False
+            self.prev = node.val
+            return inorder(node.right)
+
+        return inorder(root)
 
 
 def check_solutions(node_list: List[int], expect: bool):
