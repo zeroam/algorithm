@@ -51,6 +51,7 @@
 - [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 - [279. Perfetct Squares](https://leetcode.com/problems/perfect-squares/)
 - [283. Move Zeros](https://leetcode.com/problems/move-zeroes/)
+- [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst/)
 - [286. Walls and Gates](https://leetcode.com/problems/walls-and-gates/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
