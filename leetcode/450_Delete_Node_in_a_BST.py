@@ -39,7 +39,7 @@ class Solution:
         return root
 
 
-class Solution:
+class SolutionRecursive:
     def predecessor(self, node: TreeNode) -> int:
         node = node.left
         while node.right:
@@ -71,3 +71,57 @@ class Solution:
                 root.right = self.deleteNode(root.right, root.val)
 
         return root
+
+
+class SolutionIterative:
+    def find_node(self, node: TreeNode, parent: TreeNode, key: int):
+        while node and node.val != key:
+            parent = node
+            if key < node.val:
+                node = node.left
+            else:
+                node = node.right
+
+        return node, parent
+
+    def find_min_node(self, node: TreeNode, parent: TreeNode):
+        while node.left:
+            parent = node
+            node = node.left
+        return node, parent
+
+
+    def deleteNode(self, root: TreeNode, key: int) -> TreeNode:
+        dummy = TreeNode(-1)
+        dummy.left = root
+
+        node, parent = self.find_node(root, dummy, key)
+        if node is None:
+            return root
+
+        if node.left is None and node.right is None:
+            if parent.right == node:
+                parent.right = None
+            else:
+                parent.left = None
+        elif node.left is None:
+            if parent.right == node:
+                parent.right = node.right
+            else:
+                parent.left = node.right
+        elif node.right is None:
+            if parent.right == node:
+                parent.right = node.left
+            else:
+                parent.left = node.left
+        else:
+            min_node, min_node_parent = self.find_min_node(node.right, node)
+            node.val = min_node.val
+
+            # case to node.left is None
+            if min_node_parent.right == min_node:
+                min_node_parent.right = min_node.right
+            else:
+                min_node_parent.left = min_node.right
+
+        return dummy.left
