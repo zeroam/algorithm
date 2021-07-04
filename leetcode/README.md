@@ -46,6 +46,7 @@
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
 - [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 - [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
+- [235. Lowest Common Ancestor of a Binary Search Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/)
 - [236. Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/)
 - [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [250. Count Univalue Subtree](https://leetcode.com/problems/count-univalue-subtrees/)
