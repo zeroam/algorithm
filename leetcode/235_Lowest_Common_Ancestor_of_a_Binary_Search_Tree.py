@@ -29,3 +29,32 @@ class Solution:
             ans = p_parents[i]
 
         return ans
+
+
+class SolutionRecursive:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        parent_val = root.val
+        p_val = p.val
+        q_val = q.val
+
+        if p_val > parent_val and q_val > parent_val:
+            return self.lowestCommonAncestor(root.right, p, q)
+        elif p_val < parent_val and q_val < parent_val:
+            return self.lowestCommonAncestor(root.left, p, q)
+        else:
+            return root
+
+
+class SolutionIterative:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        p_val = p.val
+        q_val = q.val
+
+        while root:
+            parent_val = root.val
+            if p_val > parent_val and q_val > parent_val:
+                root = root.right
+            elif p_val < parent_val and q_val < parent_val:
+                root = root.left
+            else:
+                return root
