@@ -42,6 +42,7 @@
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
+- [220. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
 - [225. Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
 - [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
