@@ -26,10 +26,46 @@ class Solution:
         return self.ans
 
 
-def check_solutions(l: List[Optional[int]], expect: bool):
-    s = Solution()
+class SolutionTopDown:
+    def height(self, node: TreeNode) -> int:
+        if node is None:
+            return -1
+        return 1 + max(self.height(node.left), self.height(node.right))
 
-    assert s.isBalanced(make_tree_node(l)) == expect
+    def isBalanced(self, root: TreeNode) -> bool:
+        if root is None:
+            return True
+
+        return abs(self.height(root.left) - self.height(root.right)) < 2 \
+                and self.isBalanced(root.left) and self.isBalanced(root.right)
+
+
+class SolutionBottomUp:
+    def isBalanced(self, root: TreeNode) -> bool:
+        if root is None:
+            return True
+
+        def balance_check(root: TreeNode):
+            if root is None:
+                return True, -1
+
+            is_balanced, left_height = balance_check(root.left)
+            if not is_balanced:
+                return False, 0
+            is_balanced, right_height = balance_check(root.right)
+            if not is_balanced:
+                return False, 0
+
+            return abs(left_height - right_height) < 2, 1 + max(left_height, right_height)
+
+        return balance_check(root)[0]
+
+
+def check_solutions(l: List[Optional[int]], expect: bool):
+    solutions = [Solution(), SolutionTopDown(), SolutionBottomUp()]
+
+    for s in solutions:
+        assert s.isBalanced(make_tree_node(l)) == expect
 
 
 if __name__ == "__main__":
