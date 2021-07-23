@@ -108,3 +108,81 @@ class Bucket:
                 return True
             node = node.next
         return False
+
+
+class TreeNode:
+    def __init__(self, val: int):
+        self.val = val
+        self.left = None
+        self.right = None
+
+
+class BST:
+    def __init__(self):
+        self.head = None
+
+    def insert(self, val: int):
+        if self.head is None:
+            self.head = TreeNode(val)
+            return self.head
+
+        node = self.head
+        while node:
+            if val < node.val:
+                if node.left:
+                    node = node.left
+                else:
+                    node.left = TreeNode(val)
+                    node = None
+            elif val > node.val:
+                if node.right:
+                    node = node.right
+                else:
+                    node.right = TreeNode(val)
+                    node = None
+            else:
+                break
+
+
+    def search(self, val: int) -> bool:
+        node = self.head
+
+        while node:
+            if val < node.val:
+                node = node.left
+            elif val > node.val:
+                node = node.right
+            else:
+                return True
+
+        return False
+
+
+    def delete(self, val: int):
+        node = self.head
+
+
+class MyHashSet:
+
+    def __init__(self):
+        self.key_range = 769
+        self.bucket = [BST() for _ in range(self.key_range)]
+
+
+    def _hash(self, key: int):
+        return key % self.key_range
+
+
+    def add(self, key: int) -> None:
+        bst = self.bucket[self._hash(key)]
+        bst.insert(key)
+
+
+    def remove(self, key: int) -> None:
+        bst = self.bucket[self._hash(key)]
+        bst.delete(key)
+
+
+    def contains(self, key: int) -> bool:
+        bst = self.bucket[self._hash(key)]
+        return bst.search(key)
