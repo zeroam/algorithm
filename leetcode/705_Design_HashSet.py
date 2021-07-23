@@ -128,21 +128,21 @@ class BST:
 
         node = self.head
         while node:
+            if val == node.val:
+                break
+
             if val < node.val:
                 if node.left:
                     node = node.left
                 else:
                     node.left = TreeNode(val)
-                    node = None
+                    break
             elif val > node.val:
                 if node.right:
                     node = node.right
                 else:
                     node.right = TreeNode(val)
-                    node = None
-            else:
-                break
-
+                    break
 
     def search(self, val: int) -> bool:
         node = self.head
@@ -159,10 +159,59 @@ class BST:
 
 
     def delete(self, val: int):
+        if self.head is None:
+            return
+
         node = self.head
+        prev = None
+        while node:
+            if val < node.val:
+                prev = node
+                node = node.left
+                continue
+
+            if val > node.val:
+                prev = node
+                node = node.right
+                continue
+
+            if node.left and node.right:
+                # find predecessor
+                predecessor = node.left
+                while predecessor.right:
+                    predecessor = predecessor.right
+
+                node.val = predecessor.val
+
+                prev = node
+                node = node.left
+            elif node.left:
+                if prev is None:
+                    self.head = node.left
+                elif prev.left and prev.left.val == val:
+                    prev.left = node.left
+                else:
+                    prev.right = node.left
+                break
+            elif node.right:
+                if prev is None:
+                    self.head = node.right
+                elif prev.left and prev.left.val == val:
+                    prev.left = node.right
+                else:
+                    prev.right = node.right
+                break
+            else:
+                if prev is None:
+                    self.head = None
+                elif prev.left and prev.left.val == val:
+                    prev.left = None
+                else:
+                    prev.right = None
+                break
 
 
-class MyHashSet:
+class MyHashSetBST:
 
     def __init__(self):
         self.key_range = 769
