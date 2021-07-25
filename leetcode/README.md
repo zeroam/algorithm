@@ -54,6 +54,7 @@
 - [239. Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/)
 - [250. Count Univalue Subtree](https://leetcode.com/problems/count-univalue-subtrees/)
 - [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
+- [268. Missing Number](https://leetcode.com/problems/missing-number/)
 - [279. Perfetct Squares](https://leetcode.com/problems/perfect-squares/)
 - [283. Move Zeros](https://leetcode.com/problems/move-zeroes/)
 - [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst/)
