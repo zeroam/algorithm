@@ -98,6 +98,7 @@
 - [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [705. Design HashSet](https://leetcode.com/problems/design-hashset/)
+- [706. Design HashMap](https://leetcode.com/problems/design-hashmap/)
 - [707. Design Linked List](https://leetcode.com/problems/design-linked-list/)
 - [708. Insert into a Sorted Circular Linked List](https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/)
 - [733. Flood Fill](https://leetcode.com/problems/flood-fill/)
