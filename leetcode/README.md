@@ -29,6 +29,7 @@
 - [127. Word Ladder](https://leetcode.com/problems/word-ladder/)
 - [133. Clone Graph](https://leetcode.com/problems/clone-graph/)
 - [134. Gas Station](https://leetcode.com/problems/gas-station/)
+- [136. Single Number](https://leetcode.com/problems/single-number/)
 - [138. Copy List with Random Pointer](https://leetcode.com/problems/copy-list-with-random-pointer/)
 - [139. Word Break](https://leetcode.com/problems/word-break/)
 - [141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/)
