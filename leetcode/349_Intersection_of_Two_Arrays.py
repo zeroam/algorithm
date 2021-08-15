@@ -13,3 +13,4 @@ def test_solution():
     s = Solution()
 
     assert s.intersection([1, 2, 2, 1], [2, 2]) == set([2])
+    assert s.intersection([4, 9, 5], [4, 9]) == set([4, 9])
