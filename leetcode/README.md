@@ -49,6 +49,7 @@
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
 - [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
+- [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)
 - [220. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
 - [225. Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
