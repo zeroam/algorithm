@@ -1,3 +1,6 @@
+from collections import deque
+
+
 class Logger:
     def __init__(self):
         """
@@ -22,6 +25,27 @@ class Logger:
         return False
 
 
+class LoggerQueue:
+    def __init__(self):
+        self._msg_queue = deque()
+        self._msg_set = set()
+
+    def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
+        while self._msg_queue:
+            msg, ts = self._msg_queue[0]
+            if timestamp - ts >= 10:
+                self._msg_queue.popleft()
+                self._msg_set.remove(msg)
+            else:
+                break
+
+        if message not in self._msg_set:
+            self._msg_set.add(message)
+            self._msg_queue.append((message, timestamp))
+            return True
+        return False
+
+
 def check_case(logger: Logger):
     assert logger.shouldPrintMessage(1, "foo") == True
     assert logger.shouldPrintMessage(2, "bar") == True
@@ -34,3 +58,7 @@ def check_case(logger: Logger):
 
 def test_solution():
     check_case(Logger())
+
+
+def test_solution_queue():
+    check_case(LoggerQueue())
