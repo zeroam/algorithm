@@ -7,6 +7,7 @@
 - [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
 - [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/)
 - [27. Remove Element](https://leetcode.com/problems/remove-element/)
+- [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 - [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 - [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [57. Insert Interval](https://leetcode.com/problems/insert-interval/)
