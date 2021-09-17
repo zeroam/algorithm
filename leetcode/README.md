@@ -116,6 +116,7 @@
 - [708. Insert into a Sorted Circular Linked List](https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/)
 - [733. Flood Fill](https://leetcode.com/problems/flood-fill/)
 - [752. Open the Lock](https://leetcode.com/problems/open-the-lock/)
+- [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)
 - [804. Unique Morse Code Words](https://leetcode.com/problems/unique-morse-code-words/)
 - [824. Goat Latin](https://leetcode.com/problems/goat-latin/)
 - [835. Image Overlap](https://leetcode.com/problems/image-overlap/)
