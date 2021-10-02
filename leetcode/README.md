@@ -156,3 +156,4 @@
 - [Replace Elements with Greatest Element on Right Side](https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/)
 - [Height Checker](https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3228/)
 - [Kth Largest Element in a Stream](https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/142/conclusion/1018/)
+- [Unique Word Abbreviation](https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1137/)
