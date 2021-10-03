@@ -79,6 +79,7 @@
 - [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays/)
 - [350. Intersection of Two Arrays II](https://leetcode.com/problems/intersection-of-two-arrays-ii/)
 - [359. Logger Rate Limiter](https://leetcode.com/problems/logger-rate-limiter/)
+- [380. Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
 - [382. Linked List Random Node](https://leetcode.com/problems/linked-list-random-node/)
 - [387. First Unique Character in a String](https://leetcode.com/problems/first-unique-character-in-a-string/)
 - [389. Find the Difference](https://leetcode.com/problems/find-the-difference/)
