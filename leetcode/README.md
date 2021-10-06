@@ -159,3 +159,4 @@
 - [Kth Largest Element in a Stream](https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/142/conclusion/1018/)
 - [Unique Word Abbreviation](https://leetcode.com/explore/learn/card/hash-table/187/conclusion-hash-table/1137/)
 - [Quick Find](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3878/)
+- [Quick Union](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3840/)
