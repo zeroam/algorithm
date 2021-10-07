@@ -54,6 +54,33 @@ class QuickUnion(UnionFind):
         return self.find(x) == self.find(y)
 
 
+class UnionByRank(UnionFind):
+    def __init__(self, size):
+        self.root = [i for i in range(size)]
+        self.rank = [1] * size
+
+    def find(self, x):
+        while x != self.root[x]:
+            x = self.root[x]
+        return x
+
+    def union(self, x, y):
+        root_x = self.find(x)
+        root_y = self.find(y)
+        if root_x != root_y:
+            if self.rank[root_x] > self.rank[root_y]:
+                self.root[root_y] = root_x
+            elif self.rank[root_x] < self.rank[root_y]:
+                self.root[root_x] = root_y
+            else:
+                self.root[root_y] = root_x
+                self.rank[root_x] += 1
+        print(f"{x} vs {y} -> {self.rank}")
+
+    def connected(self, x, y):
+        return self.find(x) == self.find(y)
+
+
 def case1(Solution: UnionFind):
     uf = Solution(10)
 
@@ -91,3 +118,8 @@ def test_union_find():
 def test_union_find_quick_union():
     case1(QuickUnion)
     case2(QuickUnion)
+
+
+def test_union_by_rank():
+    case1(UnionByRank)
+    case2(UnionByRank)
