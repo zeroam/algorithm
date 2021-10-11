@@ -81,6 +81,26 @@ class UnionByRank(UnionFind):
         return self.find(x) == self.find(y)
 
 
+class PathOptimization(UnionFind):
+    def __init__(self, size):
+        self.root = [i for i in range(size)]
+
+    def find(self, x):
+        if self.root[x] == x:
+            return x
+        self.root[x] = self.find(self.root[x])
+        return self.root[x]
+
+    def union(self, x, y):
+        root_x = self.find(x)
+        root_y = self.find(y)
+        if root_x != root_y:
+            self.root[root_y] = root_x
+
+    def connected(self, x, y):
+        return self.find(x) == self.find(y)
+
+
 def case1(Solution: UnionFind):
     uf = Solution(10)
 
@@ -123,3 +143,8 @@ def test_union_find_quick_union():
 def test_union_by_rank():
     case1(UnionByRank)
     case2(UnionByRank)
+
+
+def test_path_optimization():
+    case1(PathOptimization)
+    case2(PathOptimization)

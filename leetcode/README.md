@@ -161,3 +161,4 @@
 - [Union by Rank - Disjoint Set](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3879/)
 - [Quick Find - Disjoint Set](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3878/)
 - [Quick Union - Disjoint Set](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3840/)
+- [Path Compression Optimization - Disjoint Set](https://leetcode.com/explore/learn/card/graph/618/disjoint-set/3880/)
