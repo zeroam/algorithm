@@ -1,3 +1,4 @@
+from collections import deque
 from typing import List
 
 
@@ -23,6 +24,48 @@ class Solution:
 
         print(root)
         return len(set(root))
+
+
+class SolutionDFS:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        visited = [0 for _ in range(n)]
+
+        def dfs(i):
+            for j in range(len(isConnected)):
+                if isConnected[i][j] == 1 and visited[j] == 0:
+                    visited[j] = 1
+                    dfs(j)
+
+        count = 0
+        for i in range(n):
+            if visited[i] == 0:
+                dfs(i)
+                count += 1
+
+        return count
+
+
+class SolutionBFS:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        visited = [0 for _ in range(n)]
+        queue = deque()
+
+        count = 0
+        for i in range(n):
+            if visited[i] == 0:
+                queue.append(i)
+                while queue:
+                    s = queue.popleft()
+                    visited[s] = 1
+                    for j in range(n):
+                        if isConnected[s][j] == 1 and visited[j] == 0:
+                            queue.append(j)
+                count += 1
+
+        return count
+
 
 
 def check_cases(s: Solution):
@@ -51,3 +94,11 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_dfs():
+    check_cases(SolutionDFS())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
