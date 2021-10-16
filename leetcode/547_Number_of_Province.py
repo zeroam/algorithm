@@ -67,6 +67,35 @@ class SolutionBFS:
         return count
 
 
+class SolutionUnion:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        parent = [i for i in range(n)]
+
+        def find(x):
+            if parent[x] == x:
+                return x
+            parent[x] = find(parent[x])
+            return parent[x]
+
+        def union(x, y):
+            xset = find(x)
+            yset = find(y)
+            if xset != yset:
+                parent[yset] = xset
+
+        for i in range(n):
+            for j in range(i, n):
+                if isConnected[i][j] == 1:
+                    union(i, j)
+
+        count = 0
+        for i, p in enumerate(parent):
+            if p == i:
+                count += 1
+
+        return count
+
 
 def check_cases(s: Solution):
     assert s.findCircleNum(
@@ -102,3 +131,7 @@ def test_solution_dfs():
 
 def test_solution_bfs():
     check_cases(SolutionBFS())
+
+
+def test_solution_union():
+    check_cases(SolutionUnion())
