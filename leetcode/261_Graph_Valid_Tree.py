@@ -1,3 +1,4 @@
+from collections import deque
 from typing import List
 
 
@@ -43,6 +44,88 @@ class Solution:
         return uf.count == 1 and uf.is_tree
 
 
+class SolutionIterativeDFS:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        parent = {0: -1}
+        stack = [0]
+
+        while stack:
+            node = stack.pop()
+            for neighbor in adj_list[node]:
+                if neighbor == parent[node]:
+                    continue
+                if neighbor in parent:
+                    return False
+                parent[neighbor] = node
+                stack.append(neighbor)
+
+        return len(parent) == n
+
+
+class SolutionRecursiveDFS:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        seen = set()
+
+        def dfs(node, parent):
+            if node in seen:
+                return
+
+            seen.add(node)
+            for neighbor in adj_list[node]:
+                if neighbor == parent:
+                    continue
+                if neighbor in seen:
+                    return False
+                result = dfs(neighbor, node)
+                if not result:
+                    return False
+            return True
+
+        return dfs(0, -1) and len(seen) == n
+
+
+class SolutionBFS:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        parent = {0: -1}
+        queue = deque([0])
+
+        while queue:
+            node = queue.popleft()
+            for neighbor in adj_list[node]:
+                if neighbor == parent[node]:
+                    continue
+                if neighbor in parent:
+                    return False
+                parent[neighbor] = node
+                queue.append(neighbor)
+
+        return len(parent) == n
+
+
 def check_cases(s: Solution):
     assert s.validTree(5, [[0, 1], [0, 2], [0, 3], [1, 4]]) == True
     assert s.validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]]) == False
@@ -51,3 +134,15 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_dfs():
+    check_cases(SolutionIterativeDFS())
+
+
+def test_solution_dfs():
+    check_cases(SolutionRecursiveDFS())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
