@@ -70,6 +70,30 @@ class SolutionIterativeDFS:
         return len(parent) == n
 
 
+class SolutionIterativeDFS2:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        stack = [0]
+        seen = {0}
+
+        while stack:
+            node = stack.pop()
+            for neighbor in adj_list[node]:
+                if neighbor in seen:
+                    continue
+                seen.add(neighbor)
+                stack.append(neighbor)
+
+        return len(seen) == n
+
+
 class SolutionRecursiveDFS:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         if len(edges) != n - 1:
@@ -100,6 +124,30 @@ class SolutionRecursiveDFS:
         return dfs(0, -1) and len(seen) == n
 
 
+class SolutionRecursiveDFS2:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        seen = set()
+
+        def dfs(node):
+            if node in seen:
+                return
+
+            seen.add(node)
+            for neighbor in adj_list[node]:
+                dfs(neighbor)
+
+        dfs(0)
+        return len(seen) == n
+
+
 class SolutionBFS:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
         if len(edges) != n - 1:
@@ -126,6 +174,30 @@ class SolutionBFS:
         return len(parent) == n
 
 
+class SolutionBFS2:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+        if len(edges) != n - 1:
+            return False
+
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        queue = deque([0])
+        seen = {0}
+
+        while queue:
+            node = queue.popleft()
+            for neighbor in adj_list[node]:
+                if neighbor in seen:
+                    continue
+                seen.add(neighbor)
+                queue.append(neighbor)
+
+        return len(seen) == n
+
+
 def check_cases(s: Solution):
     assert s.validTree(5, [[0, 1], [0, 2], [0, 3], [1, 4]]) == True
     assert s.validTree(5, [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]]) == False
@@ -136,13 +208,25 @@ def test_solution():
     check_cases(Solution())
 
 
-def test_solution_dfs():
+def test_solution_iterative_dfs():
     check_cases(SolutionIterativeDFS())
 
 
-def test_solution_dfs():
+def test_solution_iterative_dfs2():
+    check_cases(SolutionIterativeDFS2())
+
+
+def test_solution_recursive_dfs():
     check_cases(SolutionRecursiveDFS())
+
+
+def test_solution_recursive_dfs2():
+    check_cases(SolutionRecursiveDFS2())
 
 
 def test_solution_bfs():
     check_cases(SolutionBFS())
+
+
+def test_solution_bfs2():
+    check_cases(SolutionBFS2())
