@@ -56,6 +56,35 @@ class Solution2:
         return uf.count
 
 
+class SolutionDFS:
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        def dfs(adj_list: list, visited: set, x: int):
+            visited.add(x)
+            for neighbor in adj_list[x]:
+                if neighbor in visited:
+                    continue
+                dfs(adj_list, visited, neighbor)
+
+        # make adjlist
+        adj_list = [[] for _ in range(n)]
+        for x, y in edges:
+            adj_list[x].append(y)
+            adj_list[y].append(x)
+
+        # iterate and dfs
+        visited = set()
+        components = 0
+
+        for i in range(n):
+            if i in visited:
+                continue
+
+            components += 1
+            dfs(adj_list, visited, i)
+
+        return components
+
+
 def check_cases(s: Solution):
     assert s.countComponents(4, [[0, 1], [2, 3], [1, 2]]) == 1
     assert s.countComponents(5, [[0, 1], [1, 2], [3, 4]]) == 2
@@ -68,3 +97,7 @@ def test_solution():
 
 def test_solution2():
     check_cases(Solution2())
+
+
+def test_solution_dfs():
+    check_cases(SolutionDFS())
