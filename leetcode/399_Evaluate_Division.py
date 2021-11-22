@@ -104,6 +104,49 @@ class SolutionUnion(Solution):
         return results
 
 
+class SolutionUnionFindReview:
+    def calcEquation(self, equations: List[List[str]], values: List[float], queries: List[List[str]]) -> List[float]:
+        gid_weights = {}
+
+        def find(node_id):
+            if node_id not in gid_weights:
+                gid_weights[node_id] = (node_id, 1)
+
+            group_id, weight = gid_weights[node_id]
+            if node_id != group_id:
+                new_group_id, new_weight = find(group_id)
+                gid_weights[node_id] = (new_group_id, weight * new_weight)
+
+            return gid_weights[node_id]
+
+        def union(dividend, divisor, value):
+            dividend_group, dividend_weight = find(dividend)
+            divisor_group, divisor_weight = find(divisor)
+            if dividend_group != divisor_group:
+                gid_weights[dividend_group] = (divisor_group, divisor_weight * value / dividend_weight)
+
+        # make disjoint set
+        for (dividend, divisor), value in zip(equations, values):
+            union(dividend, divisor, value)
+
+        # find ans
+        ans = []
+        for dividend, divisor in queries:
+            if dividend not in gid_weights or divisor not in gid_weights:
+                ret = -1
+            else:
+                dividend_group, dividend_weight = find(dividend)
+                divisor_group, divisor_weight = find(divisor)
+                if dividend_group != divisor_group:
+                    ret = -1
+                else:
+                    ret = dividend_weight / divisor_weight
+
+            ans.append(ret)
+
+        return ans
+
+
 def check_cases(s: Solution):
     equations = [["a", "b"], ["b", "c"]]
     values = [2.0, 3.0]
@@ -130,5 +173,3 @@ def test_solution_graph():
 
 def test_solution_union():
     check_cases(SolutionUnion())
-
-
