@@ -144,6 +144,7 @@
 - [1026. Maximum Difference Between Node and Ancestor](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/)
 - [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters/)
 - [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)
+- [1168. Optimize Water Distribution in a Village](https://leetcode.com/problems/optimize-water-distribution-in-a-village/)
 - [1217. Minimum Cost to Move Chips to The Same Position](https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/)
 - [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)
 - [1288. Remove Covered Intervals](https://leetcode.com/problems/remove-covered-intervals/)
