@@ -46,6 +46,58 @@ class Solution(SolutionInterface):
         return total_cost
 
 
+class UnionFind:
+    def __init__(self, n: int):
+        self.root = [i for i in range(n + 1)]
+        self.rank = [1 for _ in range(n + 1)]
+
+    def find(self, x: int) -> int:
+        if self.root[x] != x:
+            self.root[x] = self.find(self.root[x])
+        return self.root[x]
+
+    def union(self, x: int, y: int) -> None:
+        root_x = self.find(x)
+        root_y = self.find(y)
+        if root_x == root_y:
+            return False
+
+        if self.rank[root_x] > self.rank[root_y]:
+            self.root[root_y] = root_x
+        elif self.rank[root_y] > self.rank[root_x]:
+            self.root[root_x] = root_y
+        else:
+            self.rank[root_x] += 1
+            self.root[root_y] = root_x
+        return True
+
+
+class SolutionUnionFind(SolutionInterface):
+    def minCostToSupplyWater(self, n: int, wells: List[int], pipes: List[List[int]]) -> int:
+        ordered_edges = []
+
+        # make virtual node
+        for index, cost in enumerate(wells):
+            ordered_edges.append((cost, 0, index + 1))
+
+        # add edges
+        for house_1, house_2, cost in pipes:
+            ordered_edges.append((cost, house_1, house_2))
+
+        # sort
+        ordered_edges.sort(key=lambda x: x[0])
+
+        # disjoint join
+        uf = UnionFind(n)
+        total_cost = 0
+        for cost, house_1, house_2 in ordered_edges:
+            if uf.union(house_1, house_2):
+                total_cost += cost
+
+        return total_cost
+
+
+
 def check_cases(s: SolutionInterface):
     s.minCostToSupplyWater(3, [1, 2, 2], [[1, 2, 1], [2, 3, 1]]) == 3
     s.minCostToSupplyWater(2, [1, 1], [[1, 2, 1]]) == 2
@@ -53,3 +105,7 @@ def check_cases(s: SolutionInterface):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_union_find():
+    check_cases(SolutionUnionFind())
