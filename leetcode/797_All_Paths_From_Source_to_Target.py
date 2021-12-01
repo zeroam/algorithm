@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from collections import deque
 from typing import List
 
 
@@ -33,6 +34,25 @@ class Solution(SolutionBase):
         return paths
 
 
+class SolutionBacktracking:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        target = len(graph) - 1
+        results = []
+
+        def backtrack(cur_node, path):
+            if cur_node == target:
+                results.append(list(path))
+                return
+
+            for next_node in graph[cur_node]:
+                path.append(next_node)
+                backtrack(next_node, path)
+                path.pop()
+
+        backtrack(0, deque([0]))
+        return results
+
+
 def check_cases(s: SolutionBase):
     s.allPathsSourceTarget([[1, 2], [3], [3], []]) == [[0, 1, 3], [0, 2, 3]]
     s.allPathsSourceTarget([[4, 3, 1], [3, 2, 4], [3], [4], []]) == [[0, 4], [0, 3, 4], [0, 1, 3, 4], [0, 1, 2, 3, 4], [0, 1, 4]]
@@ -43,3 +63,7 @@ def check_cases(s: SolutionBase):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_backtracking():
+    check_cases(SolutionBacktracking())
