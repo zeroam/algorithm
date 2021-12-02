@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from collections import deque
+from functools import lru_cache
 from typing import List
 
 
@@ -53,6 +54,49 @@ class SolutionBacktracking:
         return results
 
 
+class SolutionDP:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        memo = {}
+        target = len(graph) - 1
+
+        def all_paths_to_target(cur_node):
+            if cur_node in memo:
+                return memo[cur_node]
+
+            if cur_node == target:
+                return [[target]]
+
+            results = []
+            for next_node in graph[cur_node]:
+                for path in all_paths_to_target(next_node):
+                    results.append([cur_node] + path)
+
+            memo[cur_node] = results
+            return results
+
+        return all_paths_to_target(0)
+
+
+class SolutionDP2:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        target = len(graph) - 1
+
+        @lru_cache(maxsize=None)
+        def all_paths_to_target(cur_node):
+            if cur_node == target:
+                return [[target]]
+
+            results = []
+            for next_node in graph[cur_node]:
+                for path in all_paths_to_target(next_node):
+                    results.append([cur_node] + path)
+
+            return results
+
+        return all_paths_to_target(0)
+
+
+
 def check_cases(s: SolutionBase):
     s.allPathsSourceTarget([[1, 2], [3], [3], []]) == [[0, 1, 3], [0, 2, 3]]
     s.allPathsSourceTarget([[4, 3, 1], [3, 2, 4], [3], [4], []]) == [[0, 4], [0, 3, 4], [0, 1, 3, 4], [0, 1, 2, 3, 4], [0, 1, 4]]
@@ -67,3 +111,11 @@ def test_solution():
 
 def test_solution_backtracking():
     check_cases(SolutionBacktracking())
+
+
+def test_solution_dp():
+    check_cases(SolutionDP())
+
+
+def test_solution_dp2():
+    check_cases(SolutionDP2())
