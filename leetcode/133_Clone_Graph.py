@@ -93,3 +93,23 @@ class SolutionOrigin:
             clone_node.neighbors = [self.cloneGraph(n) for n in node.neighbors]
 
         return clone_node
+
+
+class SolutionDFS:
+    def __init__(self):
+        self.node_map = {}
+
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if node is None:
+            return None
+
+        if node in self.node_map:
+            return self.node_map[node]
+
+        new_node = Node(node.val)
+        self.node_map[node] = new_node
+
+        for next_node in node.neighbors:
+            new_node.neighbors.append(self.cloneGraph(next_node))
+
+        return new_node
