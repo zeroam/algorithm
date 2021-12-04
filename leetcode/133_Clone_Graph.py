@@ -1,3 +1,4 @@
+from collections import deque
 # Definition for a Node.
 class Node:
     def __init__(self, val = 0, neighbors = None):
@@ -113,3 +114,45 @@ class SolutionDFS:
             new_node.neighbors.append(self.cloneGraph(next_node))
 
         return new_node
+
+
+class SolutionIterativeDFS:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if node is None:
+            return None
+
+        visited = {}
+
+        stack = [(node)]
+        visited[node] = Node(node.val)
+
+        while stack:
+            cur_node = stack.pop()
+            for next_node in cur_node.neighbors:
+                if next_node not in visited:
+                    visited[next_node] = Node(next_node.val)
+                    stack.append(next_node)
+                visited[cur_node].neighbors.append(visited[next_node])
+
+        return visited[node]
+
+
+class SolutionBFS:
+    def cloneGraph(self, node: 'Node') -> 'Node':
+        if node is None:
+            return None
+
+        visited = {}
+
+        queue = deque([(node)])
+        visited[node] = Node(node.val)
+
+        while queue:
+            cur_node = queue.popleft()
+            for next_node in cur_node.neighbors:
+                if next_node not in visited:
+                    visited[next_node] = Node(next_node.val)
+                    queue.append(next_node)
+                visited[cur_node].neighbors.append(visited[next_node])
+
+        return visited[node]
