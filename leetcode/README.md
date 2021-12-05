@@ -75,6 +75,7 @@
 - [299. Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/)
 - [310. Minimum Height Trees](https://leetcode.com/problems/minimum-height-trees/)
 - [323. Number of Connected Components in an Undirected Graph](https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph/)
+- [332. Resconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
 - [328. Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/)
 - [346. Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
 - [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
