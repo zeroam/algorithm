@@ -41,6 +41,33 @@ class Solution:
         return result
 
 
+class SolutionHierholzers:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        start = "JFK"
+        self.graph = defaultdict(list)
+
+        visited = {}
+        for origin, dest in tickets:
+            self.graph[origin].append(dest)
+
+        # sort the itinerary based on lexical order
+        for origin, itinerary in self.graph.items():
+            itinerary.sort(reverse=True)
+
+        self.result = []
+        self.DFS(start)
+
+        return self.result[::-1]
+
+    def DFS(self, origin):
+        dest_list = self.graph[origin]
+        while dest_list:
+            next_dest = dest_list.pop()
+            self.DFS(next_dest)
+
+        self.result.append(origin)
+
+
 def check_cases(s: Solution):
     tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
     output = ["JFK","MUC","LHR","SFO","SJC"]
@@ -57,3 +84,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_hieholzers():
+    check_cases(SolutionHierholzers())
