@@ -36,6 +36,38 @@ class Solution:
         return True
 
 
+class SolutionDFS:
+    GRAY = 1
+    BLACK = 2
+
+    def leadsToDestination(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:
+        # make graph
+        graph = defaultdict(list)
+        for a, b in edges:
+            graph[a].append(b)
+
+        return self.leads_to_dest(graph, source, destination, [None] * n)
+
+    def leads_to_dest(self, graph, node, dest, states):
+        # If the state is GRAY, this is a backward edge and hence, it creates a Loop
+        if states[node] != None:
+            return states[node] == SolutionDFS.BLACK
+
+        # If this is a leaf node, it should be equal to the destination
+        if len(graph[node]) == 0:
+            return node == dest
+
+        # Now, we are processing this node. So we mark it as GRAY
+        states[node] = SolutionDFS.GRAY
+
+        for next_node in graph[node]:
+            if not self.leads_to_dest(graph, next_node, dest, states):
+                return False
+
+        # Recursive processing done for the node. We mark it BLACK
+        states[node] = SolutionDFS.BLACK
+        return True
+
 
 def check_cases(s: Solution):
     assert s.leadsToDestination(n=3, edges=[[0, 1], [0, 2]], source=0, destination=2) == False
@@ -49,3 +81,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_dfs():
+    check_cases(SolutionDFS())
