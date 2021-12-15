@@ -96,6 +96,24 @@ class SolutionDP2:
         return all_paths_to_target(0)
 
 
+class SolutionBFS:
+    def allPathsSourceTarget(self, graph: List[List[int]]) -> List[List[int]]:
+        start, end = 0, len(graph) - 1
+        queue = deque([[start]])
+
+        ans = []
+        while queue:
+            path = queue.popleft()
+            cur_node = path[-1]
+            if cur_node == end:
+                ans.append(path)
+                continue
+
+            for next_node in graph[cur_node]:
+                queue.append(path + [next_node])
+
+        return ans
+
 
 def check_cases(s: SolutionBase):
     s.allPathsSourceTarget([[1, 2], [3], [3], []]) == [[0, 1, 3], [0, 2, 3]]
@@ -103,6 +121,7 @@ def check_cases(s: SolutionBase):
     s.allPathsSourceTarget([[1], []]) == [[0, 1]]
     s.allPathsSourceTarget([[1, 2, 3], [2], [3], []]) == [[0, 1, 2, 3], [0, 2, 3], [0, 3]]
     s.allPathsSourceTarget([[1, 3], [2], [3], []]) == [[0, 1, 2, 3], [0, 3]]
+    s.allPathsSourceTarget([[4,3,1],[3,2,4],[3],[4],[]]) == [[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]
 
 
 def test_solution():
@@ -119,3 +138,7 @@ def test_solution_dp():
 
 def test_solution_dp2():
     check_cases(SolutionDP2())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
