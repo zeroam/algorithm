@@ -1,4 +1,5 @@
 from collections import deque
+from typing import Optional
 
 
 # Definition for a Node.
@@ -61,5 +62,23 @@ class SolutionPointers:
 
             # Move onto the next level
             leftmost = leftmost.left
+
+        return root
+
+
+class SolutionBFS:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if root is None:
+            return root
+
+        queue = deque([[root, 1]])
+        while queue:
+            node, level = queue.popleft()
+            if queue and queue[0][1] == level:
+                node.next = queue[0][0]
+
+            if node.left and node.right:
+                queue.append([node.left, level + 1])
+                queue.append([node.right, level + 1])
 
         return root
