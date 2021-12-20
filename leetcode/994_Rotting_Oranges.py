@@ -34,6 +34,47 @@ class Solution:
         return level
 
 
+class SolutionBFS:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        queue = deque()
+
+        # step1. build the initial set of rotten oranges
+        fresh_oranges = 0
+        ROWS, COLS = len(grid), len(grid[0])
+        for r in range(ROWS):
+            for c in range(COLS):
+                if grid[r][c] == 1:
+                    fresh_oranges += 1
+                if grid[r][c] == 2:
+                    queue.append((r, c))
+
+        # Mark the round / level
+        queue.append((-1, -1))
+
+        # step2. start the rotting process via BFS
+        minutes_elapsed = -1
+        directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+        while queue:
+            row, col = queue.popleft()
+            if row == -1:
+                minutes_elapsed += 1
+                if queue:  # to avoid the endless loop
+                    queue.append((-1, -1))
+                continue
+
+            for d in directions:
+                neighbor_row, neighbor_col = row + d[0], col + d[1]
+                if not 0 <= neighbor_row < ROWS or not 0 <= neighbor_col < COLS:
+                    continue
+
+                if grid[neighbor_row][neighbor_col] == 1:
+                    grid[neighbor_row][neighbor_col] = 2
+                    fresh_oranges -= 1
+                    queue.append((neighbor_row, neighbor_col))
+
+        return minutes_elapsed if fresh_oranges == 0 else -1
+
+
 def check_cases(s: Solution):
     assert s.orangesRotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]]) == 4
     assert s.orangesRotting([[2, 1, 1], [0, 1, 1], [1, 0, 1]]) == -1
@@ -42,3 +83,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
