@@ -75,6 +75,41 @@ class SolutionBFS:
         return minutes_elapsed if fresh_oranges == 0 else -1
 
 
+class SolutionInPlace:
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        ROWS, COLS = len(grid), len(grid[0])
+        directions = [(-1, 0), (0, 1), (1, 0), (0, -1)]
+
+        def rotting_process(timestamp):
+            to_be_continue = False
+            for x in range(ROWS):
+                for y in range(COLS):
+                    if grid[x][y] != timestamp:
+                        continue
+
+                    for dir_x, dir_y in directions:
+                        next_x, next_y = x + dir_x, y + dir_y
+                        if not 0 <= next_x < ROWS or not 0 <= next_y < COLS:
+                            continue
+
+                        if grid[next_x][next_y] == 1:
+                            grid[next_x][next_y] = timestamp + 1
+                            to_be_continue = True
+
+            return to_be_continue
+
+        timestamp = 2
+        while rotting_process(timestamp):
+            timestamp += 1
+
+        for row in grid:
+            for state in row:
+                if state == 1:
+                    return -1
+
+        return timestamp - 2
+
+
 def check_cases(s: Solution):
     assert s.orangesRotting([[2, 1, 1], [1, 1, 0], [0, 1, 1]]) == 4
     assert s.orangesRotting([[2, 1, 1], [0, 1, 1], [1, 0, 1]]) == -1
@@ -87,3 +122,7 @@ def test_solution():
 
 def test_solution_bfs():
     check_cases(SolutionBFS())
+
+
+def test_solution_in_place_bfs():
+    check_cases(SolutionInPlace())
