@@ -164,6 +164,7 @@
 - [Daily Temperatures](https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1363/)
 - [Group Shifted Strings](https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1125/)
 - [Find Duplicate Subtrees](https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1127/)
+- [Min Cost to Connect All Points](https://leetcode.com/explore/learn/card/graph/621/algorithms-to-construct-minimum-spanning-tree/3857/)
 - [Replace Elements with Greatest Element on Right Side](https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/)
 - [Height Checker](https://leetcode.com/explore/learn/card/fun-with-arrays/523/conclusion/3228/)
 - [Kth Largest Element in a Stream](https://leetcode.com/explore/learn/card/introduction-to-data-structure-binary-search-tree/142/conclusion/1018/)
