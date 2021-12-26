@@ -125,6 +125,7 @@
 - [707. Design Linked List](https://leetcode.com/problems/design-linked-list/)
 - [708. Insert into a Sorted Circular Linked List](https://leetcode.com/problems/insert-into-a-sorted-circular-linked-list/)
 - [733. Flood Fill](https://leetcode.com/problems/flood-fill/)
+- [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 - [752. Open the Lock](https://leetcode.com/problems/open-the-lock/)
 - [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)
 - [797. All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/)
