@@ -1,45 +1,41 @@
+from collections import defaultdict
 from typing import List
 
 
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
-        MAX_SIZE = 10000000000
-
         # make graph
-        graph = [[MAX_SIZE] * n for _ in range(n)]
+        graph = defaultdict(list)
         for x, y, cost in times:
-            graph[x - 1][y - 1] = cost
+            graph[x - 1].append((y - 1, cost))
 
-        start = k - 1
         visited = [False] * n
-        costs = [MAX_SIZE] * n
+        costs = [float('inf')] * n
+        costs[k - 1] = 0
 
-        # start -> n
-        costs[start] = 0
-
-        cur_index = start
-        for _ in range(n):
-            # renew cost
-            for neighbor, cost in enumerate(graph[cur_index]):
-                if costs[cur_index] + cost < costs[neighbor]:
-                    costs[neighbor] = costs[cur_index] + cost
-            visited[cur_index] = True
-
-            # find next_index
-            next_index = -1
-            max_value = MAX_SIZE
+        # traverse and update cost
+        while True:
+            # find cand_node
+            cand_node = -1
+            cand_dist = float('inf')
             for i in range(n):
                 if visited[i]:
                     continue
 
-                if graph[cur_index][i] <= max_value:
-                    next_index = i
+                if costs[i] < cand_dist:
+                    cand_node = i
+                    cand_dist = costs[i]
 
-            cur_index = next_index
+            if cand_node == -1:
+                break
 
-        print(costs)
-        result = max(costs)
-        return result if result != MAX_SIZE else -1
+            # update costs
+            visited[cand_node] = True
+            for node, cost in graph[cand_node]:
+                costs[node] = min(costs[node], costs[cand_node] + cost)
+
+        max_cost = max(costs)
+        return max_cost if max_cost < float('inf') else -1
 
 
 def check_cases(s: Solution):
