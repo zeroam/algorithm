@@ -44,25 +44,23 @@ class SolutionPriorityQueue:
         # make graph
         graph = defaultdict(list)
         for u, v, w in times:
-            graph[u].append((v, w))
+            graph[u].append((w, v))
 
         # initialize
-        pq = [(0, k)]
+        queue = [(0, k)]
         dist = {}
 
-        while pq:
+        while queue:
             # find min node
-            d, node = heapq.heappop(pq)
+            cost, node = heapq.heappop(queue)
             if node in dist:
                 continue
 
-            # update routing costs
-            dist[node] = d
-            for nei, d2 in graph[node]:
-                if nei in dist:
+            dist[node] = cost
+            for next_cost, next_node in graph[node]:
+                if next_node in dist:
                     continue
-
-                heapq.heappush(pq, (d + d2, nei))
+                heapq.heappush(queue, (cost + next_cost, next_node))
 
         return max(dist.values()) if len(dist) == n else -1
 
