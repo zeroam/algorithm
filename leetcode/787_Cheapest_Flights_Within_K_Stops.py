@@ -34,6 +34,7 @@ class SolutionDijkstra:
         hq = [(0, src, -1)]
         prices = [float('inf')] * n
         current_stops = [float('inf')] * n
+        prices[src], current_stops[src] = 0, 0
 
         while hq:
             price, node, stop = heapq.heappop(hq)
@@ -49,6 +50,7 @@ class SolutionDijkstra:
             # heappush
             for next_node, next_price in graph[node]:
                 if price + next_price < prices[next_node]:
+                    prices[next_node] = price + next_price
                     heapq.heappush(hq, (price + next_price, next_node, stop + 1))
                 elif stop < current_stops[next_node]:
                     heapq.heappush(hq, (price + next_price, next_node, stop + 1))
