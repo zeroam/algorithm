@@ -60,6 +60,35 @@ class SolutionDijkstra:
         return prices[dst] if prices[dst] != float('inf') else -1
 
 
+class SolutionDFS:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+        graph = defaultdict(list)
+        for u, v, price in flights:
+            graph[u].append((v, price))
+
+        prices = {}
+
+        def traverse(node, stop):
+            if node == dst:
+                return 0
+
+            if stop == k + 1:
+                return float('inf')
+
+            if (node, stop) in prices:
+                return prices[(node, stop)]
+
+            ans = float('inf')
+            for next_node, next_price in graph[node]:
+                ans = min(ans, traverse(next_node, stop + 1) + next_price)
+
+            prices[(node, stop)] = ans
+            return ans
+
+        ans = traverse(src, 0)
+        return ans if ans != float('inf') else -1
+
+
 def check_cases(s: Solution):
     n = 5
     flights = [[1,2,10],[2,0,7],[1,3,8],[4,0,10],[3,4,2],[4,2,10],[0,3,3],[3,1,6],[2,4,5]]
@@ -96,3 +125,7 @@ def test_solution():
 
 def test_solution_dijkstra():
     check_cases(SolutionDijkstra())
+
+
+def test_solution_dfs():
+    check_cases(SolutionDFS())
