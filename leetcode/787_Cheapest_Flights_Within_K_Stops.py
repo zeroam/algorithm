@@ -1,5 +1,5 @@
 import heapq
-from collections import defaultdict
+from collections import defaultdict, deque
 from typing import List
 
 
@@ -111,6 +111,46 @@ class SolutionBellmanFord:
         return ans if ans != float('inf') else -1
 
 
+class SolutionBFS:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+        adj_matrix = [[0] * n for _ in range(n)]
+        for u, v, w in flights:
+            adj_matrix[u][v] = w
+
+        distances = {}
+        distances[(src, 0)] = 0
+
+        queue = deque([src])
+
+        stops = 0
+        ans = float('inf')
+
+        while queue and stops < k + 1:
+            for _ in range(len(queue)):
+                node = queue.popleft()
+
+                for nei in range(n):
+                    if adj_matrix[node][nei] == 0:
+                        continue
+
+                    d_u = distances.get((node, stops), float('inf'))
+                    d_v = distances.get((nei, stops + 1), float('inf'))
+                    w_uv = adj_matrix[node][nei]
+
+                    if stops == k and nei != dst:
+                        continue
+
+                    if d_u + w_uv < d_v:
+                        distances[(nei, stops + 1)] = d_u + w_uv
+                        queue.append(nei)
+
+                        if nei == dst:
+                            ans = min(ans, d_u + w_uv)
+
+            stops += 1
+
+        return ans if ans != float('inf') else -1
+
 
 def check_cases(s: Solution):
     n = 5
@@ -156,3 +196,7 @@ def test_solution_dfs():
 
 def test_solution_bellman_ford():
     check_cases(SolutionBellmanFord())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
