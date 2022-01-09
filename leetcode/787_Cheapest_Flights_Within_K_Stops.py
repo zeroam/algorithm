@@ -89,6 +89,29 @@ class SolutionDFS:
         return ans if ans != float('inf') else -1
 
 
+class SolutionBellmanFord:
+    def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
+        graph = defaultdict(list)
+        for u, v, price in flights:
+            graph[v].append((u, price))
+
+
+        # bellman ford algorithm
+        cur_routes = [float('inf')] * n
+        cur_routes[src] = 0
+
+        for _ in range(k + 1):
+            # iterate from prev_routes
+            prev_routes = cur_routes.copy()
+
+            for u, v, price in flights:
+                cur_routes[v] = min(cur_routes[v], prev_routes[u] + price)
+
+        ans = cur_routes[dst]
+        return ans if ans != float('inf') else -1
+
+
+
 def check_cases(s: Solution):
     n = 5
     flights = [[1,2,10],[2,0,7],[1,3,8],[4,0,10],[3,4,2],[4,2,10],[0,3,3],[3,1,6],[2,4,5]]
@@ -129,3 +152,7 @@ def test_solution_dijkstra():
 
 def test_solution_dfs():
     check_cases(SolutionDFS())
+
+
+def test_solution_bellman_ford():
+    check_cases(SolutionBellmanFord())
