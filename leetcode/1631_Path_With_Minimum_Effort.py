@@ -5,39 +5,50 @@ from typing import List
 
 class Solution:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        # make graph
-        n = len(heights)
-        directions = ((-1, 0), (0, 1), (-1, 0), (0, -1))
-
-        graph = defaultdict(list)
-        for i, row in enumerate(heights):
-            for j, col in enumerate(row):
-                for dir_row, dir_col in directions:
-                    row_index = i + dir_row
-                    col_index = j + dir_col
-
-                    if not (0 <= row_index < n and 0 <= col_index < n):
-                        continue
-
-                    # up, right, down, left
-                    graph[i, j].append((col, (row_index, col_index)))
-
         # initialize
+        m, n = len(heights), len(heights[0])
+        directions = ((-1, 0), (0, 1), (1, 0), (0, -1))
+
         src = (0, 0)
-        dest = (n - 1, n - 1)
+        dest = (m - 1, n - 1)
         min_efforts = {}
-        hq = [(0, src)]
+        hq = [(0, 0, 0)]
 
         # iterate
-        print(graph)
+        max_effort = 0
         while hq:
-            cost, node = heapq.heappop(hq)
+            effort, cur_row, cur_col = heapq.heappop(hq)
+            node = (cur_row, cur_col)
             if node in min_efforts:
                 continue
 
-            min_efforts[node] = cost
-            for next_cost, next_node in graph[node]:
-                min_efforts[next_node] = min_efforts[node] + next_cost
-                heapq.heappush(hq, (min_efforts[next_node], next_node))
+            if effort > max_effort:
+                max_effort = effort
 
-        print(min_efforts)
+            if node == dest:
+                break
+
+            min_efforts[node] = effort
+
+            cur_height = heights[cur_row][cur_col]
+            for dir_row, dir_col in directions:
+                next_row = cur_row + dir_row
+                next_col = cur_col + dir_col
+
+                if 0 <= next_row < m and 0 <= next_col < n:
+                    next_height = heights[next_row][next_col]
+                    heapq.heappush(hq, (abs(cur_height - next_height), next_row, next_col))
+
+        return max_effort
+
+
+def check_cases(s: Solution):
+    assert s.minimumEffortPath([[3]]) == 0
+    assert s.minimumEffortPath([[1, 10, 6, 7, 9, 10, 4, 9]]) == 9
+    assert s.minimumEffortPath([[1, 2, 2], [3, 8, 2], [5, 3, 5]]) == 2
+    assert s.minimumEffortPath([[1, 2, 3], [3, 8, 4], [5, 3, 5]]) == 1
+    assert s.minimumEffortPath([[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]) == 0
+
+
+def test_solution():
+    check_cases(Solution())
