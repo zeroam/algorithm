@@ -42,6 +42,44 @@ class Solution:
         return max_effort
 
 
+class SolutionBruteForceDFS:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        # initialize
+        m, n = len(heights), len(heights[0])
+        visited = set()
+
+        self.max_so_far = float('inf')
+        def dfs(x: int, y: int, max_diff: int):
+            if (x, y) == (m - 1, n - 1):
+                self.max_so_far = min(self.max_so_far, max_diff)
+                return max_diff
+
+            cur_height = heights[x][y]
+            min_effort = float('inf')
+            visited.add((x, y))
+            for dx, dy in [(-1, 0), (0, 1), (1, 0), (0, -1)]:
+                adj_x = x + dx
+                adj_y = y + dy
+
+                if (adj_x, adj_y) in visited:
+                    continue
+                if not (0 <= adj_x < m and 0 <= adj_y < n):
+                    continue
+
+                cur_diff = abs(heights[adj_x][adj_y] - cur_height)
+                max_cur_diff = max(max_diff, cur_diff)
+                if max_cur_diff > self.max_so_far:  # backtracking
+                    continue
+
+                result = dfs(adj_x, adj_y, max_cur_diff)
+                min_effort = min(min_effort, result)
+            visited.remove((x, y))
+
+            return min_effort
+
+        return dfs(0, 0, 0)
+
+
 def check_cases(s: Solution):
     assert s.minimumEffortPath([[3]]) == 0
     assert s.minimumEffortPath([[1, 10, 6, 7, 9, 10, 4, 9]]) == 9
@@ -52,3 +90,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_bruteforce_dfs():
+    check_cases(SolutionBruteForceDFS())
