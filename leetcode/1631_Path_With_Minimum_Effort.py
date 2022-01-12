@@ -80,6 +80,39 @@ class SolutionBruteForceDFS:
         return dfs(0, 0, 0)
 
 
+class SolutionDijkstra:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        # initialize
+        m, n = len(heights), len(heights[0])
+
+        diff_matrix = [[float('inf')] * n for _ in range(m)]
+        diff_matrix[0][0] = 0
+        visited = [[False] * n for _ in range(m)]
+        hq = [(0, 0, 0)]
+
+        while hq:
+            cur_diff, x, y = heapq.heappop(hq)
+            visited[x][y] = True
+
+            cur_height = heights[x][y]
+            for dx,dy in [(0, 1), (-1, 0), (0, -1), (1, 0)]:
+                nei_x = x + dx
+                nei_y = y + dy
+
+                if not (0 <= nei_x < m and 0 <= nei_y < n):
+                    continue
+                if visited[nei_x][nei_y]:
+                    continue
+
+                nei_diff = abs(heights[nei_x][nei_y] - cur_height)
+                max_diff = max(cur_diff, nei_diff)
+                if diff_matrix[nei_x][nei_y] > max_diff:
+                    diff_matrix[nei_x][nei_y] = max_diff
+                    heapq.heappush(hq, (max_diff, nei_x, nei_y))
+
+        return diff_matrix[-1][-1]
+
+
 def check_cases(s: Solution):
     assert s.minimumEffortPath([[3]]) == 0
     assert s.minimumEffortPath([[1, 10, 6, 7, 9, 10, 4, 9]]) == 9
@@ -94,3 +127,7 @@ def test_solution():
 
 def test_solution_bruteforce_dfs():
     check_cases(SolutionBruteForceDFS())
+
+
+def test_solution_dijkstra():
+    check_cases(SolutionDijkstra())
