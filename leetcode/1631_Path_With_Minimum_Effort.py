@@ -37,7 +37,9 @@ class Solution:
 
                 if 0 <= next_row < m and 0 <= next_col < n:
                     next_height = heights[next_row][next_col]
-                    heapq.heappush(hq, (abs(cur_height - next_height), next_row, next_col))
+                    heapq.heappush(
+                        hq, (abs(cur_height - next_height), next_row, next_col)
+                    )
 
         return max_effort
 
@@ -48,14 +50,15 @@ class SolutionBruteForceDFS:
         m, n = len(heights), len(heights[0])
         visited = set()
 
-        self.max_so_far = float('inf')
+        self.max_so_far = float("inf")
+
         def dfs(x: int, y: int, max_diff: int):
             if (x, y) == (m - 1, n - 1):
                 self.max_so_far = min(self.max_so_far, max_diff)
                 return max_diff
 
             cur_height = heights[x][y]
-            min_effort = float('inf')
+            min_effort = float("inf")
             visited.add((x, y))
             for dx, dy in [(-1, 0), (0, 1), (1, 0), (0, -1)]:
                 adj_x = x + dx
@@ -85,7 +88,7 @@ class SolutionDijkstra:
         # initialize
         m, n = len(heights), len(heights[0])
 
-        diff_matrix = [[float('inf')] * n for _ in range(m)]
+        diff_matrix = [[float("inf")] * n for _ in range(m)]
         diff_matrix[0][0] = 0
         visited = [[False] * n for _ in range(m)]
         hq = [(0, 0, 0)]
@@ -95,7 +98,7 @@ class SolutionDijkstra:
             visited[x][y] = True
 
             cur_height = heights[x][y]
-            for dx,dy in [(0, 1), (-1, 0), (0, -1), (1, 0)]:
+            for dx, dy in [(0, 1), (-1, 0), (0, -1), (1, 0)]:
                 nei_x = x + dx
                 nei_y = y + dy
 
@@ -115,7 +118,50 @@ class SolutionDijkstra:
 
 class SolutionDisjointJoin:
     def minimumEffortPath(self, heights: List[List[int]]) -> int:
-        pass
+        class UnionFind:
+            def __init__(self, size):
+                self.parent = [i for i in range(size)]
+                self.rank = [0] * size
+
+            def find(self, x):
+                if self.parent[x] != x:
+                    self.parent[x] = self.find(self.parent[x])
+                return self.parent[x]
+
+            def union(self, x, y):
+                root_x = self.find(x)
+                root_y = self.find(y)
+                if root_x != root_y:
+                    if self.rank[root_x] > self.rank[root_y]:
+                        self.parent[root_y] = root_x
+                    elif self.rank[root_y] > self.rank[root_x]:
+                        self.parent[root_x] = root_y
+                    else:
+                        self.rank[root_x] += 1
+                        self.parent[root_y] = root_x
+
+        m, n = len(heights), len(heights[0])
+        if m == 1 and n == 1:
+            return 0
+
+        edge_list = []
+        for x in range(m):
+            for y in range(n):
+                if x > 0:
+                    diff = abs(heights[x][y] - heights[x - 1][y])
+                    edge_list.append((diff, x * n + y, (x - 1) * n + y))
+                if y > 0:
+                    diff = abs(heights[x][y] - heights[x][y - 1])
+                    edge_list.append((diff, x * n + y, x * n + y - 1))
+
+        edge_list.sort()
+        uf = UnionFind(m * n)
+
+        for diff, to_cell, from_cell in edge_list:
+            uf.union(to_cell, from_cell)
+            if uf.find(0) == uf.find(m * n - 1):
+                return diff
+        return -1
 
 
 def check_cases(s: Solution):
@@ -123,7 +169,18 @@ def check_cases(s: Solution):
     assert s.minimumEffortPath([[1, 10, 6, 7, 9, 10, 4, 9]]) == 9
     assert s.minimumEffortPath([[1, 2, 2], [3, 8, 2], [5, 3, 5]]) == 2
     assert s.minimumEffortPath([[1, 2, 3], [3, 8, 4], [5, 3, 5]]) == 1
-    assert s.minimumEffortPath([[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]) == 0
+    assert (
+        s.minimumEffortPath(
+            [
+                [1, 2, 1, 1, 1],
+                [1, 2, 1, 2, 1],
+                [1, 2, 1, 2, 1],
+                [1, 2, 1, 2, 1],
+                [1, 1, 1, 2, 1],
+            ]
+        )
+        == 0
+    )
 
 
 def test_solution():
