@@ -113,6 +113,11 @@ class SolutionDijkstra:
         return diff_matrix[-1][-1]
 
 
+class SolutionDisjointJoin:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        pass
+
+
 def check_cases(s: Solution):
     assert s.minimumEffortPath([[3]]) == 0
     assert s.minimumEffortPath([[1, 10, 6, 7, 9, 10, 4, 9]]) == 9
@@ -131,3 +136,7 @@ def test_solution_bruteforce_dfs():
 
 def test_solution_dijkstra():
     check_cases(SolutionDijkstra())
+
+
+def test_solution_disjoint_join():
+    check_cases(SolutionDisjointJoin())
