@@ -19,7 +19,6 @@ class Solution:
                 dq.append(node)
                 visited[node] = True
 
-
         # add queue to node which adjlist is empty
         ans = []
         while dq:
@@ -42,12 +41,56 @@ class Solution:
         return ans
 
 
+class SolutionDFS:
+    WHITE = 1
+    GRAY = 2
+    BLACK = 3
+
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        # make adjlist
+        adj_list = [[] for _ in range(numCourses)]
+        for dest, src in prerequisites:
+            adj_list[src].append(dest)
+
+        stack = []
+        colors = [self.WHITE] * numCourses
+        is_cycle = False
+
+        def dfs(node):
+            nonlocal is_cycle
+            if is_cycle:
+                return
+
+            colors[node] = self.GRAY
+
+            for nei in adj_list[node]:
+                if colors[nei] == self.WHITE:
+                    dfs(nei)
+                elif colors[nei] == self.GRAY:
+                    is_cycle = True
+
+            colors[node] = self.BLACK
+            stack.append(node)
+
+        for node in range(numCourses):
+            if colors[node] == self.WHITE:
+                dfs(node)
+
+        if is_cycle:
+            return []
+        return stack[::-1]
+
+
 def check_cases(s: Solution):
     assert s.findOrder(2, [[1, 0]]) == [0, 1]
-    assert s.findOrder(4, [[1,0],[2,0],[3,1],[3,2]]) in ([0, 1, 2, 3], [0, 2, 1, 3])
+    assert s.findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]]) in ( [0, 1, 2, 3], [0, 2, 1, 3])
     assert s.findOrder(1, []) == [0]
-    assert s.findOrder(2, [[0,1],[1,0]]) == []
+    assert s.findOrder(2, [[0, 1], [1, 0]]) == []
 
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_dfs():
+    check_cases(SolutionDFS())
