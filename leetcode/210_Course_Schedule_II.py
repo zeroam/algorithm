@@ -81,6 +81,32 @@ class SolutionDFS:
         return stack[::-1]
 
 
+class SolutionKahns:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        graph = [[] for _ in range(numCourses)]
+        degrees = [0] * numCourses
+        for dest, src in prerequisites:
+            graph[src].append(dest)
+            degrees[dest] += 1
+
+        # add to queue
+        queue = deque([node for node, degree in enumerate(degrees) if degree == 0])
+
+        ans = []
+        while queue:
+            node = queue.popleft()
+
+            for nei in graph[node]:
+                degrees[nei] -= 1
+                if degrees[nei] == 0:
+                    queue.append(nei)
+
+            ans.append(node)
+
+        return ans if len(ans) == numCourses else []
+
+
+
 def check_cases(s: Solution):
     assert s.findOrder(2, [[1, 0]]) == [0, 1]
     assert s.findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]]) in ( [0, 1, 2, 3], [0, 2, 1, 3])
@@ -94,3 +120,7 @@ def test_solution():
 
 def test_solution_dfs():
     check_cases(SolutionDFS())
+
+
+def test_solution_dfs_kahns():
+    check_cases(SolutionKahns())
