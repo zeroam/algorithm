@@ -6,24 +6,26 @@ class Solution:
     def alienOrder(self, words: List[str]) -> str:
         # make graph
         graph = defaultdict(set)
-        indegree = dict()
+        indegree = dict({c: 0 for word in words for c in word})
 
         pre_word = words[0]
         for after_word in words[1:]:
             min_len = min(len(pre_word), len(after_word))
             for i in range(min_len):
-                indegree.setdefault(pre_word[i], 0)
-                indegree.setdefault(after_word[i], 0)
+                pre_char = pre_word[i]
+                after_char = after_word[i]
 
-                if pre_word[i] != after_word[i]:
-                    graph[pre_word[i]].add(after_word[i])
-                    indegree[after_word[i]] += 1
+                if pre_char != after_char:
+                    if after_char not in graph[pre_char]:
+                        graph[pre_char].add(after_char)
+                        indegree[after_char] += 1
                     break
+            else:
+                if len(pre_word) > len(after_word):
+                    return ""
 
             pre_word = after_word
 
-        print(graph)
-        print(indegree)
         queue = deque([k for k, v in indegree.items() if v == 0])
         ans = []
 
@@ -41,9 +43,11 @@ class Solution:
 
 def check_cases(s: Solution):
     assert s.alienOrder(["wrt", "wrf", "er", "ett", "rftt"]) == "wertf"
+    assert s.alienOrder(["wrt", "wrf", "er", "ett", "rw"]) == "wertf"
     assert s.alienOrder(["z", "x"]) == "zx"
     assert s.alienOrder(["z", "x", "z"]) == ""
     assert s.alienOrder(["ab", "adc"]) == "abcd"
+    assert s.alienOrder(["abc", "ab"]) == ""
 
 
 def test_solution():
