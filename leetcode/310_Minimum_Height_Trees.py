@@ -1,3 +1,5 @@
+from collections import defaultdict, deque
+from re import S
 from typing import List
 
 
@@ -12,13 +14,13 @@ class Solution:
         for start, end in edges:
             neighbors[start].add(end)
             neighbors[end].add(start)
-            
+
         # Initialize the first layer of leaves
         leaves = []
         for i in range(n):
             if len(neighbors[i]) == 1:
                 leaves.append(i)
-                
+
         # Trim the leaves until reaching the centroids
         remaining_nodes = n
         while remaining_nodes > 2:
@@ -33,18 +35,58 @@ class Solution:
                 neighbors[neighbor].remove(leaf)
                 if len(neighbors[neighbor]) == 1:
                     new_leaves.append(neighbor)
-                    
+
             # prepare for the next round
             leaves = new_leaves
-            
+
         # The remaining nodes are the centroids of the graph
         leaves.sort()
         return leaves
-                
 
-if __name__ == "__main__":
-    s = Solution()
 
+class SolutionBFS:
+    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+        if n <= 2:
+            return [i for i in range(n)]
+
+        # make graph
+        adj_list = defaultdict(list)
+        for a, b in edges:
+            adj_list[a].append(b)
+            adj_list[b].append(a)
+
+
+        min_depth = n - 1
+        ans = []
+        for i in range(n):
+            # iterate bfs starts from i
+            visited = set()
+            queue = deque([i])
+            depth = 0
+
+            while queue:
+                depth += 1
+                for _ in range(len(queue)):
+                    node = queue.popleft()
+                    visited.add(node)
+                    for next_node in adj_list[node]:
+                        if next_node in visited:
+                            continue
+
+                        queue.append(next_node)
+
+            if depth < min_depth:
+                min_depth = depth
+                ans = [i]
+            elif depth == min_depth:
+                ans.append(i)
+
+            #print(f"start:{i}, depth: {depth}")
+
+        return ans
+
+
+def check_cases(s: Solution):
     n = 1
     edges = []
     expect = [0]
@@ -64,3 +106,11 @@ if __name__ == "__main__":
     edges = [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]]
     expect = [3, 4]
     assert s.findMinHeightTrees(n, edges) == expect
+
+
+def test_solution():
+    check_cases(Solution())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
