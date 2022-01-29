@@ -55,7 +55,6 @@ class SolutionBFS:
             adj_list[a].append(b)
             adj_list[b].append(a)
 
-
         min_depth = n - 1
         ans = []
         for i in range(n):
@@ -81,9 +80,38 @@ class SolutionBFS:
             elif depth == min_depth:
                 ans.append(i)
 
-            #print(f"start:{i}, depth: {depth}")
-
         return ans
+
+
+class Solution2:
+    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+        if n <= 2:
+            return [i for i in range(n)]
+
+        # make graph
+        graph = defaultdict(set)
+        for a, b in edges:
+            graph[a].add(b)
+            graph[b].add(a)
+
+        leaves = []
+        for i in range(n):
+            if len(graph[i]) == 1:
+                leaves.append(i)
+
+        remaining = n - len(leaves)
+        while remaining > 0:
+            new_leaves = []
+            while leaves:
+                leaf = leaves.pop()
+                neighbor = graph[leaf].pop()
+                graph[neighbor].remove(leaf)
+                if len(graph[neighbor]) == 1:
+                    new_leaves.append(neighbor)
+
+            leaves = new_leaves
+            remaining -= len(leaves)
+        return sorted(leaves)
 
 
 def check_cases(s: Solution):
@@ -114,3 +142,7 @@ def test_solution():
 
 def test_solution_bfs():
     check_cases(SolutionBFS())
+
+
+def test_solution2():
+    check_cases(Solution2())
