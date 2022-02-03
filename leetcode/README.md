@@ -154,6 +154,7 @@
 - [1059. All Paths from Source Lead to Destination](https://leetcode.com/problems/all-paths-from-source-lead-to-destination/)
 - [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
 - [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)
+- [1136. Parallel Courses](https://leetcode.com/problems/parallel-courses/)
 - [1168. Optimize Water Distribution in a Village](https://leetcode.com/problems/optimize-water-distribution-in-a-village/)
 - [1217. Minimum Cost to Move Chips to The Same Position](https://leetcode.com/problems/minimum-cost-to-move-chips-to-the-same-position/)
 - [1286. Iterator for Combination](https://leetcode.com/problems/iterator-for-combination/)
