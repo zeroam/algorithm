@@ -53,6 +53,7 @@
 - [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
 - [213. House Robber II](https://leetcode.com/problems/house-robber-ii/)
+- [214. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 - [217. Contains Duplicate](https://leetcode.com/problems/contains-duplicate/)
 - [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)
 - [220. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
