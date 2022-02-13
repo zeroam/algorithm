@@ -1,4 +1,5 @@
 import random
+import heapq
 from collections import Counter
 from typing import List
 
@@ -7,6 +8,20 @@ class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         c = Counter(nums)
         return [x[0] for x in c.most_common(k)]
+
+
+class SolutionHeap:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        counts = Counter(nums)
+
+        # make max_heap
+        max_heap = [(-v, k) for k, v in counts.items()]
+        heapq.heapify(max_heap)
+
+        ans = []
+        for _ in range(k):
+            ans.append(heapq.heappop(max_heap)[1])
+        return ans
 
 
 class SolutionQuickSelect:
@@ -67,6 +82,10 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_heap():
+    check_cases(SolutionHeap())
 
 
 def test_solution_quick_select():
