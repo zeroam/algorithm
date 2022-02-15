@@ -1,4 +1,5 @@
 import heapq
+import bisect
 from typing import List
 
 
@@ -8,15 +9,27 @@ class Solution:
         heapq.heapify(max_heap)
 
         while len(max_heap) > 1:
-            num1 = heapq.heappop(max_heap)
-            num2 = heapq.heappop(max_heap)
-            diff = abs(num1 - num2)
-            if diff > 0:
-                heapq.heappush(max_heap, -1 * diff)
+            stone_1 = heapq.heappop(max_heap)
+            stone_2 = heapq.heappop(max_heap)
+            if stone_1 != stone_2:
+                heapq.heappush(max_heap, stone_1 - stone_2)
 
-        if len(max_heap) == 0:
-            return 0
-        return -1 * max_heap[0]
+        return -1 * max_heap[0] if max_heap else 0
+
+
+class SolutionBisect:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        stones.sort()
+
+        while len(stones) > 1:
+            stone_1 = stones.pop()
+            stone_2 = stones.pop()
+            if stone_1 != stone_2:
+                bisect.insort(stones, stone_1 - stone_2)
+
+        return stones[0] if stones else 0
+
+
 
 
 def check_cases(s: Solution):
@@ -27,3 +40,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_bisect():
+    check_cases(SolutionBisect())
