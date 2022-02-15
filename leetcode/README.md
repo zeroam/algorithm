@@ -153,6 +153,7 @@
 - [1009. Complement of Base 10 Integer](https://leetcode.com/problems/complement-of-base-10-integer/)
 - [1026. Maximum Difference Between Node and Ancestor](https://leetcode.com/problems/maximum-difference-between-node-and-ancestor/)
 - [1032. Stream of Characters](https://leetcode.com/problems/stream-of-characters/)
+- [1046. Last Stone Weight](https://leetcode.com/problems/last-stone-weight/)
 - [1059. All Paths from Source Lead to Destination](https://leetcode.com/problems/all-paths-from-source-lead-to-destination/)
 - [1091. Shortest Path in Binary Matrix](https://leetcode.com/problems/shortest-path-in-binary-matrix/)
 - [1103. Distribute Candies to People](https://leetcode.com/problems/distribute-candies-to-people/)
