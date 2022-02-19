@@ -9,8 +9,8 @@ class Solution:
         min_heap = []
 
         # find n - k + 1 th largest element
-        for row in matrix:
-            for col in row:
+        for row in reversed(matrix):
+            for col in reversed(row):
                 if count < size - k + 1:
                     heapq.heappush(min_heap, col)
                     count += 1
@@ -19,9 +19,26 @@ class Solution:
                 if col > min_heap[0]:
                     heapq.heappush(min_heap, col)
                     heapq.heappop(min_heap)
+                else:
+                    break
 
         return min_heap[0]
 
+
+class SolutionHeap:
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+        min_heap = []
+        n = len(matrix)
+
+        for row in range(n):
+            heapq.heappush(min_heap, (matrix[row][0], row, 0))
+
+        for _ in range(k):
+            v, r, c = heapq.heappop(min_heap)
+            if c != n - 1:  # end of row
+                heapq.heappush(min_heap, (matrix[r][c + 1], r, c + 1))
+
+        return v
 
 
 def check_cases(s: Solution):
@@ -31,3 +48,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_heap():
+    check_cases(SolutionHeap())
