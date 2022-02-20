@@ -41,6 +41,38 @@ class SolutionHeap:
         return v
 
 
+class SolutionBinarySearch:
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
+        def count_less_equal(matrix, start, end):
+            mid = (start + end) / 2
+            count = 0
+
+            smaller, larger = start, end
+            for row in range(len(matrix)):
+                for col in range(len(matrix[row])):
+                    cur_num = matrix[row][col]
+                    if cur_num > mid:
+                        larger = min(cur_num, larger)
+                        break
+
+                    count += 1
+                    smaller = max(cur_num, smaller)
+
+            return count, smaller, larger
+
+        start, end = matrix[0][0], matrix[-1][-1]
+        while start < end:
+            count, smaller, larger = count_less_equal(matrix, start, end)
+            if count == k:
+                return smaller
+            elif count < k:
+                start = larger
+            else:
+                end = smaller
+
+        return start
+
+
 def check_cases(s: Solution):
     s.kthSmallest([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 8) == 13
     s.kthSmallest([[-5]], 1) == -5
@@ -52,3 +84,7 @@ def test_solution():
 
 def test_solution_heap():
     check_cases(SolutionHeap())
+
+
+def test_solution_binary_search():
+    check_cases(SolutionBinarySearch())
