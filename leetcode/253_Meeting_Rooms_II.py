@@ -8,18 +8,30 @@ class Solution:
         intervals.sort()
 
         # add end to heap and compare min_end to next start
-        count = 1
-        min_heap = [intervals[0][1]]
+        free_rooms = [intervals[0][1]]
         for start, end in intervals[1:]:
-            min_end = min_heap[0]
-            if start < min_end:
-                count += 1
+            if start >= free_rooms[0]:
+                heapq.heappop(free_rooms)
+            heapq.heappush(free_rooms, end)
+
+        return len(free_rooms)
+
+
+class SolutionChronologicalOrdering:
+    def minMeetingRooms(self, intervals: List[List[int]]) -> int:
+        start_times = sorted(i[0] for i in intervals)
+        end_times = sorted(i[1] for i in intervals)
+
+        end_pt = 0
+        rooms = 0
+        for start in start_times:
+            end = end_times[end_pt]
+            if start < end:
+                rooms += 1
             else:
-                heapq.heappop(min_heap)
+                end_pt += 1
 
-            heapq.heappush(min_heap, end)
-
-        return count
+        return rooms
 
 
 def check_cases(s: Solution):
@@ -30,3 +42,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_chronical_ordering():
+    check_cases(SolutionChronologicalOrdering())
