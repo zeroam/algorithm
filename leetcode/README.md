@@ -174,6 +174,7 @@
 - [1584. Min Cost to Connect All Points](https://leetcode.com/problems/min-cost-to-connect-all-points/)
 - [1631. Path With Minimum Effort](https://leetcode.com/problems/path-with-minimum-effort/)
 - [1640. Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation/)
+- [1642. Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/)
 
 - [Check If N and Its Double Exist](https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/)
 - [Daily Temperatures](https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1363/)
