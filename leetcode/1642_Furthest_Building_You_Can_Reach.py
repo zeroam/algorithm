@@ -75,12 +75,38 @@ class SolutionMaxHeap:
         return len(heights) - 1
 
 
+class SolutionBS:
+    def furthestBuilding(self, heights: List[int], bricks: int, ladders: int) -> int:
+        def is_reachable(index: int):
+            climbs = sorted(distances[:index])
+            if bricks < sum(climbs[i] for i in range(len(climbs) - ladders)):
+                return False
+            return True
+
+        distances = []
+        for i in range(len(heights) - 1):
+            diff = heights[i + 1] - heights[i]
+            distances.append(max(diff, 0))
+
+        start = 0
+        end = len(heights) - 1
+        while start < end:
+            mid = start + (end - start + 1) // 2
+            if is_reachable(mid):
+                start = mid
+            else:
+                end = mid - 1
+
+        return end
+
+
 def check_cases(s: Solution):
     assert s.furthestBuilding([14, 3, 19, 3], 17, 0) == 3
     assert s.furthestBuilding([4, 2, 7, 6, 9, 14, 12], 5, 1) == 4
     assert s.furthestBuilding([4, 12, 2, 7, 3, 18, 20, 3, 19], 10, 2) == 7
     assert s.furthestBuilding([14, 3, 19, 3], 17, 0) == 3
     assert s.furthestBuilding([2, 7, 9, 12], 5, 1) == 3
+    assert s.furthestBuilding([1, 2], 0, 0) == 0
 
 
 def test_solution():
@@ -93,3 +119,7 @@ def test_solution_min_heap():
 
 def test_solution_max_heap():
     check_cases(SolutionMaxHeap())
+
+
+def test_solution_bs():
+    check_cases(SolutionBS())
