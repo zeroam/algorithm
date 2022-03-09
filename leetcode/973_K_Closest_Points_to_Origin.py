@@ -124,3 +124,4 @@ def test_solution_binary_search():
 
 def test_solution_quick_select():
     check_cases(SolutionQuickSelect())
+
