@@ -1,4 +1,5 @@
 import bisect
+import heapq
 
 
 class MedianFinder:
@@ -68,6 +69,26 @@ class MedianFinderBisect2:
         return result
 
 
+class MedianFinderHeap:
+    def __init__(self):
+        self.low = []  # max-heap
+        self.high = []  # min-heap
+
+    def addNum(self, num: int) -> None:
+        heapq.heappush(self.low, -num)
+        heapq.heappush(self.high, -heapq.heappop(self.low))
+
+        if len(self.low) < len(self.high):
+            heapq.heappush(self.low, -heapq.heappop(self.high))
+
+    def findMedian(self) -> float:
+        if len(self.low) > len(self.high):
+            result = -self.low[0]
+        else:
+            result = (-self.low[0] + self.high[0]) / 2
+        return result
+
+
 def check_cases(finder: MedianFinder):
     finder.addNum(12)
     assert finder.findMedian() == 12
@@ -89,3 +110,7 @@ def test_solution_bisect():
 
 def test_solution_bisect2():
     check_cases(MedianFinderBisect2())
+
+
+def test_solution_heap():
+    check_cases(MedianFinderHeap())
