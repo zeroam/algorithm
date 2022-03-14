@@ -15,6 +15,7 @@
 - [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/)
 - [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/)
 - [61. Rotate List](https://leetcode.com/problems/rotate-list/)
+- [66. Plus One](https://leetcode.com/problems/plus-oned/)
 - [77. Combinations](https://leetcode.com/problems/combinations/)
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
 - [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
