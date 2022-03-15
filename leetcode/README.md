@@ -115,6 +115,7 @@
 - [490. The Maze](https://leetcode.com/problems/the-maze/)
 - [494. Target Sum](https://leetcode.com/problems/target-sum/)
 - [495. Teemo Attacking](https://leetcode.com/problems/teemo-attacking/)
+- [498. Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
 - [542. 01 Matrix](https://leetcode.com/problems/01-matrix/)
 - [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
