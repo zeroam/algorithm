@@ -26,6 +26,38 @@ class Solution:
         return result
 
 
+class SolutionBoundary:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
+        m, n = len(matrix), len(matrix[0])
+        up, down, left, right = 0, m - 1, 0, n - 1
+
+        result = []
+        while len(result) < m * n:
+            # left -> right
+            for col in range(left, right + 1):
+                result.append(matrix[up][col])
+
+            # downwards
+            for row in range(up + 1, down + 1):
+                result.append(matrix[row][right])
+
+            # right -> left
+            if up != down:
+                for col in range(right - 1, left - 1, -1):
+                    result.append(matrix[down][col])
+
+            # upwards
+            if left != right:
+                for row in range(down - 1, up, -1):
+                    result.append(matrix[row][left])
+
+            left += 1
+            right -= 1
+            up += 1
+            down -= 1
+
+        return result
+
 
 def check_cases(s: Solution):
     assert s.spiralOrder([[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12]]) == [1, 2, 3, 4, 8, 12, 11, 10, 9, 5, 6, 7]
@@ -33,3 +65,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_boundary():
+    check_cases(SolutionBoundary())
