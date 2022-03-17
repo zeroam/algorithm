@@ -18,6 +18,10 @@ class Solution:
         return "".join(result)
 
 
+class SolutionParseInt:
+    def addBinary(self, a: str, b: str) -> str:
+        return f"{int(a, 2) + int(b, 2):b}"
+
 
 def check_cases(s: Solution):
     assert s.addBinary("11", "1") == "100"
@@ -26,3 +30,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_parse_int():
+    check_cases(SolutionParseInt())
