@@ -49,6 +49,28 @@ def commonPrefix(left: str, right: str) -> str:
     return left[:min_value]
 
 
+class SolutionBinarySearch:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        min_value = min(len(word) for word in strs)
+        low, high = 0, min_value
+        while low < high:
+            mid = (low + high + 1) // 2
+            if isCommonPrefix(strs, mid):
+                low = mid
+            else:
+                high = mid - 1
+
+        return strs[0][:low]
+
+
+def isCommonPrefix(strs: List[str], index: int):
+    lcp = strs[0][:index]
+    for word in strs:
+        if not word.startswith(lcp):
+            return False
+    return True
+
+
 def check_cases(s: Solution):
     assert s.longestCommonPrefix([""]) == ""
     assert s.longestCommonPrefix(["flower", "flow", "flight"]) == "fl"
@@ -65,3 +87,7 @@ def test_solution_horizontal():
 
 def test_solution_divide_n_conquer():
     check_cases(SolutionDivideNConquer())
+
+
+def test_solution_binary_search():
+    check_cases(SolutionBinarySearch())
