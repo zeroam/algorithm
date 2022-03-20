@@ -13,6 +13,11 @@ class Solution:
             r -= 1
 
 
+class SolutionBuiltin:
+    def reverseString(self, s: List[str]) -> None:
+        s.reverse()
+
+
 def check_cases(s: Solution):
     strings = ["h", "e", "l", "l", "o"]
     s.reverseString(strings)
@@ -25,3 +30,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_builtin():
+    check_cases(SolutionBuiltin())
