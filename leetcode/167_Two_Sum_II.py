@@ -23,6 +23,19 @@ class Solution:
                 return [index1 + 1, index2 + 1]
 
 
+class SolutionTwoPoints:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        low, high = 0, len(numbers) - 1
+        while low < high:
+            total = numbers[low] + numbers[high]
+            if total < target:
+                low += 1
+            elif total > target:
+                high -= 1
+            else:
+                return [low + 1, high + 1]
+
+
 def check_cases(s: Solution):
     assert s.twoSum([2, 7, 11, 15], 9) == [1, 2]
     assert s.twoSum([2, 3, 4], 6) == [1, 3]
@@ -31,3 +44,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_two_points():
+    check_cases(SolutionTwoPoints())
