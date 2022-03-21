@@ -185,6 +185,7 @@
 - [1640. Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation/)
 - [1642. Furthest Building You Can Reach](https://leetcode.com/problems/furthest-building-you-can-reach/)
 
+- [Array Partition I](https://leetcode.com/explore/learn/card/array-and-string/205/array-two-pointer-technique/1154/)
 - [Check If N and Its Double Exist](https://leetcode.com/explore/learn/card/fun-with-arrays/527/searching-for-items-in-an-array/3250/)
 - [Daily Temperatures](https://leetcode.com/explore/learn/card/queue-stack/230/usage-stack/1363/)
 - [Group Shifted Strings](https://leetcode.com/explore/learn/card/hash-table/185/hash_table_design_the_key/1125/)
