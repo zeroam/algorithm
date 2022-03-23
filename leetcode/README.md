@@ -51,6 +51,7 @@
 - [167. Two Sum II - Input Array Is Sorted](https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/)
 - [170. Two Sum III - Data structure design](https://leetcode.com/problems/two-sum-iii-data-structure-design/)
 - [173. Binary Search Tree Iterator](https://leetcode.com/problems/binary-search-tree-iterator/)
+- [189. Rotate Array](https://leetcode.com/problems/rotate-array/)
 - [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
 - [202. Happy Number](https://leetcode.com/problems/happy-number/)
 - [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
