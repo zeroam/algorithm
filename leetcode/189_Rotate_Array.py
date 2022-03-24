@@ -51,6 +51,20 @@ class SolutionCyclicReplacement:
                 prev = nums[pt]
 
 
+class SolutionReverse:
+    def rotate(self, nums: List[int], k: int) -> None:
+        k %= len(nums)
+        self.reverse(nums, 0, len(nums) - 1)
+        self.reverse(nums, 0, k - 1)
+        self.reverse(nums, k, len(nums) - 1)
+
+    def reverse(self, nums, start, end):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start += 1
+            end -= 1
+
+
 def check_cases(s: Solution):
     nums = [1, 2, 3, 4, 5]
     s.rotate(nums, 3)
@@ -68,6 +82,10 @@ def check_cases(s: Solution):
     s.rotate(nums, 0)
     assert nums == [1]
 
+    nums = [-1]
+    s.rotate(nums, 2)
+    assert nums == [-1]
+
 
 def test_solution():
     check_cases(Solution())
@@ -83,3 +101,7 @@ def test_solution_extra_array():
 
 def test_solution_cyclic_replacement():
     check_cases(SolutionCyclicReplacement())
+
+
+def test_solution_reverse():
+    check_cases(SolutionReverse())
