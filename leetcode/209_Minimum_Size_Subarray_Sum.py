@@ -3,8 +3,9 @@ from typing import List
 
 class Solution:
     def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        origin_total = 0
         for size in range(1, len(nums) + 1):
-            total = sum(nums[0:size])
+            origin_total = total = origin_total + nums[size - 1]
             if total >= target:
                 return size
 
