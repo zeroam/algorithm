@@ -17,6 +17,32 @@ class Solution:
         return rows[-1]
 
 
+class SolutionRecursive:
+    def getRow(self, rowIndex: int) -> List[int]:
+        if rowIndex == 0:
+            return [1]
+        if rowIndex == 1:
+            return [1, 1]
+
+        prev_row = self.getRow(rowIndex - 1)
+        row = [1] * (rowIndex + 1)
+        for i in range(1, len(prev_row)):
+            row[i] = prev_row[i - 1] + prev_row[i]
+
+        return row
+
+
+class SolutionDynamic:
+    def getRow(self, rowIndex: int) -> List[int]:
+        result = [1]
+        for i in range(rowIndex):
+            for j in range(i, 0, -1):
+                result[j] = result[j] + result[j - 1]
+            result.append(1)
+
+        return result
+
+
 def check_cases(s: Solution):
     assert s.getRow(3) == [1, 3, 3, 1]
     assert s.getRow(0) == [1]
@@ -25,3 +51,11 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_recursive():
+    check_cases(SolutionRecursive())
+
+
+def test_solution_dynamic_programming():
+    check_cases(SolutionDynamic())
