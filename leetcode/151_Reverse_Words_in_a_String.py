@@ -7,6 +7,27 @@ class Solution:
         return " ".join(reversed(list(words)))
 
 
+class SolutionStack:
+    def reverseWords(self, s: str) -> str:
+        stack = []
+        result = ""
+        for i in range(len(s) - 1, -1, -1):
+            if s[i] != " ":
+                stack.append(s[i])
+                continue
+
+            if stack:
+                result += " "
+            while stack:
+                result += stack.pop()
+        if stack:
+            result += " "
+        while stack:
+            result += stack.pop()
+
+        return result.strip()
+
+
 def check_cases(s: Solution):
     assert s.reverseWords("the sky is blue") == "blue is sky the"
     assert s.reverseWords("  hello world  ") == "world hello"
@@ -15,3 +36,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_stack():
+    check_cases(SolutionStack())
