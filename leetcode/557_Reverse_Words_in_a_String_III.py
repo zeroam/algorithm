@@ -21,6 +21,11 @@ class Solution:
         return "".join(output)
 
 
+class SolutionBuiltin:
+    def reverseWords(self, s: str) -> str:
+        return " ".join([word[::-1] for word in s.split()])
+
+
 def check_cases(s: Solution):
     s.reverseWords("Let's take LeetCode contest") == "s'teL ekat edoCteeL tsetnoc"
     s.reverseWords("God Ding") == "doG gniD"
@@ -28,3 +33,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_builtin():
+    check_cases(SolutionBuiltin())
