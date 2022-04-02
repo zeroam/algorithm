@@ -140,6 +140,7 @@
 - [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
+- [704. Binary Search](https://leetcode.com/problems/binary-search/)
 - [705. Design HashSet](https://leetcode.com/problems/design-hashset/)
 - [706. Design HashMap](https://leetcode.com/problems/design-hashmap/)
 - [707. Design Linked List](https://leetcode.com/problems/design-linked-list/)
