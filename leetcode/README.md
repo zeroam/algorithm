@@ -19,6 +19,7 @@
 - [61. Rotate List](https://leetcode.com/problems/rotate-list/)
 - [66. Plus One](https://leetcode.com/problems/plus-oned/)
 - [67. Add Binary](https://leetcode.com/problems/add-binary/)
+- [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/)
 - [77. Combinations](https://leetcode.com/problems/combinations/)
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
 - [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
