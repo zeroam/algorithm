@@ -82,6 +82,7 @@
 - [266. Palindrome Permutation](https://leetcode.com/problems/palindrome-permutation/)
 - [268. Missing Number](https://leetcode.com/problems/missing-number/)
 - [269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/solution/)
+- [278. First Bad Version](https://leetcode.com/problems/first-bad-version/)
 - [279. Perfetct Squares](https://leetcode.com/problems/perfect-squares/)
 - [283. Move Zeros](https://leetcode.com/problems/move-zeroes/)
 - [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst/)
