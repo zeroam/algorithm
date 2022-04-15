@@ -49,6 +49,7 @@
 - [144. Binary Tree Preorder Traversal](https://leetcode.com/problems/binary-tree-preorder-traversal/)
 - [150. Evaluate Reverse Polish Notation](https://leetcode.com/problems/evaluate-reverse-polish-notation/)
 - [151. Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/)
+- [153. Find Minimum in Rotated Sorted Array](https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/)
 - [155. Min Stack](https://leetcode.com/problems/min-stack/)
 - [157. Read N Characters Given Read4](https://leetcode.com/problems/read-n-characters-given-read4/)
 - [160. Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/)
