@@ -46,6 +46,19 @@ class SolutionBinarySearch2:
                 right = mid - 1
 
 
+class SolutionBinarySearch3:
+    def findMin(self, nums: List[int]) -> int:
+        left, right = 0, len(nums) - 1
+        while left < right:
+            mid = (left + right) // 2
+            if nums[mid] < nums[right]:
+                right = mid
+            else:
+                left = mid + 1
+
+        return nums[left]
+
+
 def check_cases(s: Solution):
     assert s.findMin([1]) == 1  # case 1
     assert s.findMin([1, 2, 3]) == 1  # case 2
@@ -66,3 +79,7 @@ def test_solution_binary_search():
 
 def test_solution_binary_search2():
     check_cases(SolutionBinarySearch2())
+
+
+def test_solution_binary_search3():
+    check_cases(SolutionBinarySearch3())
