@@ -143,6 +143,7 @@
 - [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue/)
 - [624. Maximum Distance in Arrays](https://leetcode.com/problems/maximum-distance-in-arrays/)
 - [652. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
+- [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
 - [684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
 - [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
