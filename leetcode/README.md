@@ -148,6 +148,7 @@
 - [684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
 - [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
+- [702. Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)
 - [703. Kth Largest Element in a Stream](https://leetcode.com/problems/kth-largest-element-in-a-stream/)
 - [704. Binary Search](https://leetcode.com/problems/binary-search/)
 - [705. Design HashSet](https://leetcode.com/problems/design-hashset/)
