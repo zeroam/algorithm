@@ -13,6 +13,7 @@
 - [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
 - [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
+- [50. Pow(x, n)](https://leetcode.com/problems/powx-n/)
 - [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
 - [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/)
 - [57. Insert Interval](https://leetcode.com/problems/insert-interval/)
