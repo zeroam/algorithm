@@ -160,6 +160,7 @@
 - [724. Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
 - [733. Flood Fill](https://leetcode.com/problems/flood-fill/)
 - [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+- [744. Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
 - [752. Open the Lock](https://leetcode.com/problems/open-the-lock/)
 - [771. Jewels and Stones](https://leetcode.com/problems/jewels-and-stones/)
 - [787. Cheapest Flights Within K Stops](https://leetcode.com/problems/cheapest-flights-within-k-stops/)
