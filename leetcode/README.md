@@ -93,6 +93,7 @@
 - [283. Move Zeros](https://leetcode.com/problems/move-zeroes/)
 - [285. Inorder Successor in BST](https://leetcode.com/problems/inorder-successor-in-bst/)
 - [286. Walls and Gates](https://leetcode.com/problems/walls-and-gates/)
+- [287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)
 - [290. Word Pattern](https://leetcode.com/problems/word-pattern/)
 - [295. Find Median from Data Stream](https://leetcode.com/problems/find-median-from-data-stream/)
 - [297. Serialize and Deserialize Binary Tree](https://leetcode.com/problems/serialize-and-deserialize-binary-tree/)
