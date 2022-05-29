@@ -53,6 +53,34 @@ class SolutionDynamic:
         return split_sums(0, m)
 
 
+class SolutionBinarySearch:
+    def splitArray(self, nums: List[int], m: int) -> int:
+        def min_subarrays_required(max_sum_allowed: int) -> int:
+            curr_sum = 0
+            splits_required = 0
+
+            for num in nums:
+                if curr_sum + num <= max_sum_allowed:
+                    curr_sum += num
+                else:
+                    curr_sum = num
+                    splits_required += 1
+
+            return splits_required + 1
+
+        left = max(nums)
+        right = sum(nums)
+        while left <= right:
+            max_sum_allowed = (left + right) // 2
+            if min_subarrays_required(max_sum_allowed) <= m:
+                right = max_sum_allowed - 1
+                result = max_sum_allowed
+            else:
+                left = max_sum_allowed + 1
+
+        return result
+
+
 def check_cases(s: Solution):
     s.splitArray([7, 2, 5, 10, 8], 2) == 18
     s.splitArray([1, 2, 3, 4, 5], 2) == 9
@@ -65,3 +93,7 @@ def test_solution():
 
 def test_solution_dynamic():
     check_cases(SolutionDynamic())
+
+
+def test_solution_binary_search():
+    check_cases(SolutionBinarySearch())
