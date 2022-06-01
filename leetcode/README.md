@@ -144,6 +144,7 @@
 - [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
 - [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)
 - [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)
+- [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)
 - [593. Valid Square](https://leetcode.com/problems/valid-square/)
 - [599. Minimum Index Sum of Two Lists](https://leetcode.com/problems/minimum-index-sum-of-two-lists/)
 - [622. Design Circular Queue](https://leetcode.com/problems/design-circular-queue/)
