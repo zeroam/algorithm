@@ -19,3 +19,18 @@ class Solution:
             result += self.preorder(node)
 
         return result
+
+
+class SolutionIterative:
+    def preorder(self, root: 'Node') -> List[int]:
+        if root is None:
+            return []
+
+        stack = [root]
+        output = []
+        while stack:
+            root = stack.pop()
+            output.append(root.val)
+            stack.extend(root.children[::-1])
+
+        return output
