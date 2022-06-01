@@ -11,8 +11,6 @@ class Solution:
     def postorder(self, root: 'Node') -> List[int]:
         if root is None:
             return []
-        if len(root.children) == 0:
-            return [root.val]
 
         result = []
         for node in root.children:
@@ -20,3 +18,17 @@ class Solution:
 
         result.append(root.val)
         return result
+
+
+class SolutionIterative:
+    def postorder(self, root: 'Node') -> List[int]:
+        if root is None:
+            return []
+
+        stack, result = [root], []
+        while stack:
+            root = stack.pop()
+            result.append(root.val)
+            stack.extend(root.children)
+
+        return result[::-1]
