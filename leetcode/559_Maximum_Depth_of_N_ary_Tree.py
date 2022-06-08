@@ -16,3 +16,19 @@ class Solution:
             result = max(result, self.maxDepth(node))
 
         return result + 1
+
+
+class SolutionIteration:
+    def maxDepth(self, root: 'Node') -> int:
+        stack = []
+        if root:
+            stack.append((1, root))
+
+        depth = 0
+        while stack:
+            cur_depth, root = stack.pop()
+            depth = max(depth, cur_depth)
+            for node in root.children:
+                stack.append((cur_depth + 1, node))
+
+        return depth
