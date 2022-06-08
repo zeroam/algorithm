@@ -143,6 +143,7 @@
 - [542. 01 Matrix](https://leetcode.com/problems/01-matrix/)
 - [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
 - [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)
+- [559. Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/)
 - [563. Binary Tree Tilt](https://leetcode.com/problems/binary-tree-tilt/)
 - [589. N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)
 - [590. N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/)
