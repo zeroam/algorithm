@@ -123,6 +123,7 @@
 - [414. Third Maximum Number](https://leetcode.com/problems/third-maximum-number/)
 = [429. N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/)
 - [430. Flatten a Multilevel Doubly Linked List](https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list/)
+- [431. Encode N-ary Tree to Binary Tree](https://leetcode.com/problems/encode-n-ary-tree-to-binary-tree/)
 - [435. Non-overlapping Intervals](https://leetcode.com/problems/non-overlapping-intervals/)
 - [436. Find Right Interval](https://leetcode.com/problems/find-right-interval/)
 - [445. Add Two Numbers II](https://leetcode.com/problems/add-two-numbers-ii/)
