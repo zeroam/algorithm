@@ -33,6 +33,13 @@ class SolutionOnePass:
             hashmap[nums[i]] = i
 
 
+class SolutionIn:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        for i, num in enumerate(nums):
+            complement = target - num
+            if complement in nums[i + 1:]:
+                return [i, nums[i + 1:].index(complement) + (i + 1)]
+
 
 def check_cases(s: Solution):
     assert sorted(s.twoSum([2, 7, 11, 15], 9)) == [0, 1]
@@ -51,3 +58,7 @@ def test_solution_two_pass():
 
 def test_solution_one_pass():
     check_cases(SolutionOnePass())
+
+
+def test_solution_in():
+    check_cases(SolutionIn())
