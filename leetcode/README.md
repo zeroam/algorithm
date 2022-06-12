@@ -13,6 +13,7 @@
 - [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 - [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/)
+- [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water)
 - [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/)
 - [50. Pow(x, n)](https://leetcode.com/problems/powx-n/)
 - [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/)
