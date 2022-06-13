@@ -5,6 +5,7 @@
 - [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [5. Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/)
 - [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/)
+- [15. 3Sum](https://leetcode.com/problems/3sum/)
 - [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 - [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
 - [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/)
