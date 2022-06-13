@@ -7,10 +7,19 @@ class Solution:
         return sum(nums[i] for i in range(0, len(nums), 2))
 
 
+class Solution2:
+    def arrayPairSum(self, nums: List[int]) -> int:
+        return sum(sorted(nums)[::2])
+
+
 def check_cases(s: Solution):
     s.arrayPairSum([1, 4, 2, 3]) == 4
-    s.arrayPairSum([6, 2, 6, 5, 1 ,2]) == 9
+    s.arrayPairSum([6, 2, 6, 5, 1, 2]) == 9
 
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution2():
+    check_cases(Solution2())
