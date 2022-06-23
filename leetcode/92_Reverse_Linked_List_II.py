@@ -4,7 +4,9 @@ from common.node import ListNode, list_to_listnode, listnode_to_list
 
 
 class Solution:
-    def reverseBetween( self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+    def reverseBetween(
+        self, head: Optional[ListNode], left: int, right: int
+    ) -> Optional[ListNode]:
         if right - left == 0:
             return head
 
@@ -30,6 +32,23 @@ class Solution:
         return dummy.next
 
 
+class Solution3Swap:
+    def reverseBetween(
+        self, head: Optional[ListNode], left: int, right: int
+    ) -> Optional[ListNode]:
+        root = start = ListNode(None, head)
+
+        for _ in range(left - 1):
+            start = start.next
+        end = start.next
+
+        for _ in range(right - left):
+            tmp, start.next, end.next = start.next, end.next, end.next.next
+            start.next.next = tmp
+
+        return root.next
+
+
 def check_cases(s: Solution):
     head = [5]
     left = 1
@@ -52,3 +71,7 @@ def check_cases(s: Solution):
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution_3swap():
+    check_cases(Solution3Swap())
