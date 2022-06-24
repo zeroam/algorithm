@@ -21,10 +21,10 @@ class SolutionStack:
         result = [0] * len(temperatures)
 
         for i, temp in enumerate(temperatures):
-            while stack and stack[-1][1] < temp:
-                j, _ = stack.pop()
-                result[j] = i - j
-            stack.append((i, temp))
+            while stack and temperatures[stack[-1]] < temp:
+                last = stack.pop()
+                result[last] = i - last
+            stack.append(i)
 
         return result
 
