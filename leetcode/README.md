@@ -177,6 +177,7 @@
 - [719. Find K-th Smallest Pair Distance](https://leetcode.com/problems/find-k-th-smallest-pair-distance/)
 - [724. Find Pivot Index](https://leetcode.com/problems/find-pivot-index/)
 - [733. Flood Fill](https://leetcode.com/problems/flood-fill/)
+- [739. Daily Temperatures](https://leetcode.com/problems/daily-temperatures/)
 - [743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 - [744. Find Smallest Letter Greater Than Target](https://leetcode.com/problems/find-smallest-letter-greater-than-target/)
 - [752. Open the Lock](https://leetcode.com/problems/open-the-lock/)
