@@ -91,7 +91,6 @@ class MyCircularQueueArray:
             return -1
         return self.queue[self.head]
 
-
     def Rear(self) -> int:
         if self.count == 0:
             return -1
@@ -112,6 +111,7 @@ class Node:
     def __init__(self, value, nextNode=None):
         self.value = value
         self.next = nextNode
+
 
 class MyCircularQueueLinkedList:
     def __init__(self, k: int):
@@ -148,7 +148,6 @@ class MyCircularQueueLinkedList:
             return -1
         return self.head.value
 
-
     def Rear(self) -> int:
         if self.count == 0:
             return -1
@@ -163,3 +162,43 @@ class MyCircularQueueLinkedList:
         if self.count == self.capacity:
             return True
         return False
+
+
+class MyCircularQueueList:
+    def __init__(self, k: int):
+        self.q = [None] * k
+        self.limit = k
+        self.p1 = 0
+        self.p2 = 0
+
+    def enQueue(self, value: int) -> bool:
+        if self.isFull():
+            return False
+
+        self.q[self.p2] = value
+        self.p2 = (self.p2 + 1) % self.limit
+        return True
+
+    def deQueue(self) -> bool:
+        if self.isEmpty():
+            return False
+
+        self.q[self.p1] = None
+        self.p1 = (self.p1 + 1) % self.limit
+        return True
+
+    def Front(self) -> int:
+        if self.isEmpty():
+            return -1
+        return self.q[self.p1]
+
+    def Rear(self) -> int:
+        if self.isEmpty():
+            return -1
+        return self.q[self.p2 - 1]
+
+    def isEmpty(self) -> bool:
+        return self.p1 == self.p2 and self.q[self.p1] is None
+
+    def isFull(self) -> bool:
+        return self.p1 == self.p2 and self.q[self.p1] is not None
