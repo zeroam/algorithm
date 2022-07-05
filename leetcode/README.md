@@ -29,6 +29,7 @@
 - [67. Add Binary](https://leetcode.com/problems/add-binary/)
 - [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/)
 - [77. Combinations](https://leetcode.com/problems/combinations/)
+- [78. Subsets](https://leetcode.com/problems/subsets/)
 - [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/)
 - [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/)
 - [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/)
