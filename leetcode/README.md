@@ -75,6 +75,7 @@
 - [203. Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/)
 - [205. Isomorphic Strings](https://leetcode.com/problems/isomorphic-strings/)
 - [206. Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/)
+- [207. Course Schedule](https://leetcode.com/problems/course-schedule/)
 - [209. Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/)
 - [210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/)
 - [211. Desgin Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/)
