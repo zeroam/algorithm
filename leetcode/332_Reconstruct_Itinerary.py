@@ -17,6 +17,7 @@ class Solution:
             visited[origin] = [False] * len(itinerary)
 
         result = []
+
         def backtracking(origin, route):
             if len(route) == len(tickets) + 1:
                 nonlocal result
@@ -68,17 +69,38 @@ class SolutionHierholzers:
         self.result.append(origin)
 
 
+class SolutionIteration:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        routes = defaultdict(list)
+        for start, end in sorted(tickets, reverse=True):
+            routes[start].append(end)
+
+        result, stack = [], ["JFK"]
+        while stack:
+            while routes[stack[-1]]:
+                stack.append(routes[stack[-1]].pop())
+            result.append(stack.pop())
+
+        return result[::-1]
+
+
 def check_cases(s: Solution):
-    tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
-    output = ["JFK","MUC","LHR","SFO","SJC"]
+    tickets = [["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]
+    output = ["JFK", "MUC", "LHR", "SFO", "SJC"]
     assert s.findItinerary(tickets) == output
 
-    tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
-    output = ["JFK","ATL","JFK","SFO","ATL","SFO"]
+    tickets = [
+        ["JFK", "SFO"],
+        ["JFK", "ATL"],
+        ["SFO", "ATL"],
+        ["ATL", "JFK"],
+        ["ATL", "SFO"],
+    ]
+    output = ["JFK", "ATL", "JFK", "SFO", "ATL", "SFO"]
     assert s.findItinerary(tickets) == output
 
-    tickets = [["JFK","KUL"],["JFK","NRT"],["NRT","JFK"]]
-    output = ["JFK","NRT","JFK","KUL"]
+    tickets = [["JFK", "KUL"], ["JFK", "NRT"], ["NRT", "JFK"]]
+    output = ["JFK", "NRT", "JFK", "KUL"]
     assert s.findItinerary(tickets) == output
 
 
@@ -88,3 +110,7 @@ def test_solution():
 
 def test_solution_hieholzers():
     check_cases(SolutionHierholzers())
+
+
+def test_solution_iteration():
+    check_cases(SolutionIteration())
