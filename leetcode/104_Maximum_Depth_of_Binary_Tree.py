@@ -7,6 +7,7 @@ from common.node import TreeNode, make_tree_node
 class Solution:
     def maxDepth(self, root: TreeNode) -> int:
         self.ans = 0
+
         def find_max_depth(node: TreeNode, depth: int = 0) -> None:
             if node is None:
                 return
@@ -79,22 +80,24 @@ class SolutionBFS:
         return depth
 
 
-def check_solution(l: List[int], expect: int):
-    s = Solution()
-    s2 = Solution2()
-    s_bu = SolutionBottomUp()
-    s_iterative = SolutionIterative()
-    s_bfs = SolutionBFS()
-
-    assert s.maxDepth(make_tree_node(l)) == expect
-    assert s2.maxDepth(make_tree_node(l)) == expect
-    assert s_bu.maxDepth(make_tree_node(l)) == expect
-    assert s_iterative.maxDepth(make_tree_node(l)) == expect
-    assert s_bfs.maxDepth(make_tree_node(l)) == expect
+def check_cases(s: Solution):
+    assert s.maxDepth(make_tree_node([])) == 0
+    assert s.maxDepth(make_tree_node([0])) == 1
+    assert s.maxDepth(make_tree_node([3, 9, 20, None, None, 15, 7])) == 3
+    assert s.maxDepth(make_tree_node([1, None, 2])) == 2
 
 
-if __name__ == "__main__":
-    check_solution([3, 9, 20, None, None, 15, 7], 3)
-    check_solution([1, None, 2], 2)
-    check_solution([], 0)
-    check_solution([0], 1)
+def test_solution():
+    check_cases(Solution())
+
+
+def test_solution2():
+    check_cases(Solution2())
+
+
+def test_solution_bottom_up():
+    check_cases(SolutionBottomUp())
+
+
+def test_solution_bfs():
+    check_cases(SolutionBFS())
