@@ -154,6 +154,7 @@
 - [498. Diagonal Traverse](https://leetcode.com/problems/diagonal-traverse/)
 - [510. Inorder Successor in BST II](https://leetcode.com/problems/inorder-successor-in-bst-ii/)
 - [542. 01 Matrix](https://leetcode.com/problems/01-matrix/)
+- [543. Diameter of Binary Tree](https://leetcode.com/problems/diameter-of-binary-tree/)
 - [547. Number of Provinces](https://leetcode.com/problems/number-of-provinces/)
 - [557. Reverse Words in a String III](https://leetcode.com/problems/reverse-words-in-a-string-iii/)
 - [559. Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/)

@@ -1,3 +1,4 @@
+# https://leetcode.com/problems/recover-binary-search-tree/discuss/32539/Tree-Deserializer-and-Visualizer-for-Python
 from typing import List
 
 # Definition for a binary tree node.
@@ -7,6 +8,9 @@ class TreeNode:
         self.left = left
         self.right = right
 
+    def __repr__(self):
+        return f"TreeNode({self.val}, {self.left}, {self.right})"
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -14,29 +18,18 @@ class ListNode:
         self.next = next
 
 
-def make_tree_node(l: List[int]) -> TreeNode:
-    if len(l) == 0:
-        return None
+def make_tree_node(vals: List[int]) -> TreeNode:
+    nodes = [None if val == None else TreeNode(val) for val in vals]
+    kids = nodes[::-1]
+    root = kids.pop()
+    for node in nodes:
+        if node:
+            if kids:
+                node.left = kids.pop()
+            if kids:
+                node.right = kids.pop()
 
-    node = TreeNode(l[0])
-    queue = [node]
-    i = 1
-    while i < len(l):
-        cur_node = queue.pop(0)
-
-        num = l[i]
-        i += 1
-        if num:
-            left = cur_node.left = TreeNode(num)
-            queue.append(left)
-
-        num = l[i] if i < len(l) else None
-        i += 1
-        if num:
-            right = cur_node.right = TreeNode(num)
-            queue.append(right)
-
-    return node
+    return root
 
 
 def inorder_traverse(root: TreeNode) -> List[int]:
