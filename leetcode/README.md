@@ -169,6 +169,7 @@
 - [652. Find Duplicate Subtrees](https://leetcode.com/problems/find-duplicate-subtrees/)
 - [658. Find K Closest Elements](https://leetcode.com/problems/find-k-closest-elements/)
 - [684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
+- [687. Longest Univalue Path](https://leetcode.com/problems/longest-univalue-path/)
 - [700. Search in a Binary Search Tree](https://leetcode.com/problems/search-in-a-binary-search-tree/)
 - [701. Insert into a Binary Search Tree](https://leetcode.com/problems/insert-into-a-binary-search-tree/solution/)
 - [702. Search in a Sorted Array of Unknown Size](https://leetcode.com/problems/search-in-a-sorted-array-of-unknown-size/)
