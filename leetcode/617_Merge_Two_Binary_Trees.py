@@ -19,6 +19,18 @@ class Solution:
         return root
 
 
+class SolutionRecursive:
+    def mergeTrees(self, root1: Optional[TreeNode], root2: Optional[TreeNode]) -> Optional[TreeNode]:
+        if not (root1 and root2):
+            return root1 or root2
+
+        node = TreeNode(root1.val + root2.val)
+        node.left = self.mergeTrees(root1.left, root2.left)
+        node.right = self.mergeTrees(root1.right, root2.right)
+
+        return node
+
+
 def check_case(s: Solution, list1: list[int], list2: list[int], merged_list: list[int]) -> None:
     root1 = make_tree_node(list1)
     root2 = make_tree_node(list2)
@@ -34,3 +46,7 @@ def check_cases(s: Solution) -> None:
 
 def test_solution():
     check_cases(Solution())
+
+
+def test_solution2():
+    check_cases(SolutionRecursive())
