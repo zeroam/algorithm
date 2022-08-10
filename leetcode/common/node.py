@@ -18,7 +18,10 @@ class ListNode:
         self.next = next
 
 
-def make_tree_node(vals: List[int]) -> TreeNode:
+def make_tree_node(vals: List[int]) -> TreeNode | None:
+    if not vals:
+        return None
+
     nodes = [None if val == None else TreeNode(val) for val in vals]
     kids = nodes[::-1]
     root = kids.pop()
@@ -37,6 +40,24 @@ def inorder_traverse(root: TreeNode) -> List[int]:
         return []
 
     return inorder_traverse(root.left) + [root.val] + inorder_traverse(root.right)
+
+
+def compare_tree_node(a: TreeNode, b: TreeNode):
+    if a is None and b is None:
+        return True
+
+    if a is None or b is None:
+        return False
+    if a.val != b.val:
+        return False
+
+    if not compare_tree_node(a.left, b.left):
+        return False
+    if not compare_tree_node(a.right, b.right):
+        return False
+
+    return True
+
 
 
 def listnode_to_list(head: ListNode) -> List[int]:

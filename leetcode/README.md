@@ -85,6 +85,7 @@
 - [219. Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/)
 - [220. Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/)
 - [225. Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
+- [226. Invert Binary Tree](https://leetcode.com/problems/invert-binary-tree/)
 - [229. Majority Element II](https://leetcode.com/problems/majority-element-ii/)
 - [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 - [234. Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/)
