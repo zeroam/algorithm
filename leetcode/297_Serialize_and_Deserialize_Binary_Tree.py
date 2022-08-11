@@ -1,11 +1,10 @@
 from collections import deque
 from typing import List
 
-from common.node import TreeNode
+from common.node import TreeNode, make_tree_node, compare_tree_node
 
 
 class Codec:
-
     def serialize(self, root):
         """Encodes a tree to a single string.
 
@@ -56,31 +55,31 @@ class Codec:
 
         return root
 
-# Your Codec object will be instantiated and called as such:
-# ser = Codec()
-# deser = Codec()
-# ans = deser.deserialize(ser.serialize(root))
 
-
-class CodecDFS:
-
+class Codec2:
     def serialize(self, root):
         """Encodes a tree to a single string.
 
         :type root: TreeNode
         :rtype: str
         """
-        def rserialize(root: TreeNode, string: str) -> str:
-            if root is None:
-                string += "None,"
-            else:
-                string += f"{root.val},"
-                string = rserialize(root.left, string)
-                string = rserialize(root.right, string)
+        queue = deque([root])
+        nodes = []
+        while queue:
+            node = queue.popleft()
+            if not node:
+                nodes.append("null")
+                continue
 
-            return string
+            nodes.append(f"{node.val}")
 
-        return rserialize(root, "")
+            queue.append(node.left)
+            queue.append(node.right)
+
+        while nodes and nodes[-1] == "null":
+            nodes.pop()
+
+        return ",".join(nodes)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -88,18 +87,96 @@ class CodecDFS:
         :type data: str
         :rtype: TreeNode
         """
-        data = data.split(",")
+        if not data:
+            return None
 
-        def rdeserialize(l: List[str]) -> TreeNode:
-            if l[0] == "None":
-                l.pop(0)
-                return None
+        nodes = [
+            TreeNode(int(val)) if val != "null" else None for val in data.split(",")
+        ]
+        kids = nodes[::-1]
+        root = kids.pop()
+        for node in nodes:
+            if not node:
+                continue
 
-            root = TreeNode(l[0])
-            l.pop(0)
-            root.left = rdeserialize(l)
-            root.right = rdeserialize(l)
+            if kids:
+                node.left = kids.pop()
+            if kids:
+                node.right = kids.pop()
 
-            return root
+        return root
 
-        return rdeserialize(data)
+
+class Codec3:
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+
+        :type root: TreeNode
+        :rtype: str
+        """
+        queue = deque([root])
+        nodes = []
+        while queue:
+            node = queue.popleft()
+            if not node:
+                nodes.append("#")
+                continue
+
+            nodes.append(f"{node.val}")
+
+            queue.append(node.left)
+            queue.append(node.right)
+
+        return " ".join(nodes)
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+
+        :type data: str
+        :rtype: TreeNode
+        """
+        if data == "#":
+            return None
+
+        datas = data.split()
+
+        index = 1
+        root = TreeNode(int(datas[0]))
+
+        queue = deque([root])
+        while queue:
+            node = queue.popleft()
+            if datas[index] != "#":
+                node.left = TreeNode(int(datas[index]))
+                queue.append(node.left)
+            index += 1
+
+            if datas[index] != "#":
+                node.right = TreeNode(int(datas[index]))
+                queue.append(node.right)
+            index += 1
+
+        return root
+
+
+def check_case(s: Codec, data: list[int | None]):
+    root = make_tree_node(data)
+    assert compare_tree_node(s.deserialize(s.serialize(root)), root)
+
+
+def check_cases(s: Codec):
+    check_case(s, [])
+    check_case(s, [1])
+    check_case(s, [1, 2, 3, None, None, 4, 5])
+
+
+def test_codec():
+    check_cases(Codec())
+
+
+def test_codec2():
+    check_cases(Codec2())
+
+
+def test_codec3():
+    check_cases(Codec3())
