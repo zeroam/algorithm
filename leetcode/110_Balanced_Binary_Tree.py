@@ -1,4 +1,5 @@
-from typing import List, Optional
+from typing import Optional
+
 from common.node import TreeNode, make_tree_node
 
 
@@ -61,15 +62,40 @@ class SolutionBottomUp:
         return balance_check(root)[0]
 
 
-def check_solutions(l: List[Optional[int]], expect: bool):
-    solutions = [Solution(), SolutionTopDown(), SolutionBottomUp()]
+class Solution2:
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def check(root):
+            if not root:
+                return 0
 
-    for s in solutions:
-        assert s.isBalanced(make_tree_node(l)) == expect
+            left = check(root.left)
+            right = check(root.right)
+
+            if left == -1 or right == -1 or abs(left - right) > 1:
+                return -1
+            return max(left, right) + 1
+
+        return check(root) != -1
 
 
-if __name__ == "__main__":
-    check_solutions([], True)
-    check_solutions([3, 9, 20, None, None, 15, 7], True)
-    check_solutions([1, 2, 2, 3, 3, None, None, 4, 4], False)
-    check_solutions([1, 2, 3, 4, 5, 6, None, 8], True)
+def check_cases(s: Solution):
+    assert s.isBalanced(make_tree_node([])) is True
+    assert s.isBalanced(make_tree_node([3, 9, 20, None, None, 15, 7])) is True
+    assert s.isBalanced(make_tree_node([1, 2, 2, 3, 3, None, None, 4, 4])) is False
+    assert s.isBalanced(make_tree_node([1, 2, 3, 4, 5, 6, None, 8])) is True
+
+
+def test_solution():
+    check_cases(Solution())
+
+
+def test_solution_bottom_up():
+    check_cases(SolutionBottomUp())
+
+
+def test_solution_top_down():
+    check_cases(SolutionTopDown())
+
+
+def test_solution2():
+    check_cases(Solution2())
