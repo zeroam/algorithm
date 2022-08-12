@@ -1,5 +1,4 @@
 from collections import defaultdict, deque
-from re import S
 from typing import List
 
 
@@ -114,6 +113,45 @@ class Solution2:
         return sorted(leaves)
 
 
+class SolutionTimeLimit:
+    def findMinHeightTrees(self, n: int, edges: List[List[int]]) -> List[int]:
+        if n <= 2:
+            return [i for i in range(n)]
+
+        def traverse(node: int) -> int:
+            visited.add(node)
+
+            depth = 0
+            for next_node in graph[node]:
+                if next_node in visited:
+                    continue
+
+                depth = max(traverse(next_node), depth)
+
+            visited.remove(node)
+
+            return depth + 1
+
+        graph = defaultdict(list)
+        # make graph
+        for a, b in edges:
+            graph[a].append(b)
+            graph[b].append(a)
+
+        visited = set()
+        max_depth = float("inf")
+        results = []
+        for node in graph:
+            depth = traverse(node)
+            if depth == max_depth:
+                results.append(node)
+            if depth < max_depth:
+                max_depth = depth
+                results = [node]
+
+        return results
+
+
 def check_cases(s: Solution):
     n = 1
     edges = []
@@ -146,3 +184,7 @@ def test_solution_bfs():
 
 def test_solution2():
     check_cases(Solution2())
+
+
+def test_solution_time_limit():
+    check_cases(SolutionTimeLimit())
